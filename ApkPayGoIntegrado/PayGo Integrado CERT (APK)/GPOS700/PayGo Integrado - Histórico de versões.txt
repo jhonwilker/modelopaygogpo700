@@ -1,0 +1,2955 @@
+     
+     ------------------------------------------------------------
+     |  Cliente Pay&Go Web para Android - Histórico de Versões  |
+     ------------------------------------------------------------
+
+
+ v0.9.0.0  -  10/02/2015
+----------------------------------------------------------------------
+ - Primeira versão.
+
+
+ v1.0.0.0  -  18/02/2015
+----------------------------------------------------------------------
+ - Passar a gravar no log toda a comunicação com o PIN-Pad.
+ - Corrigido: em algumas transações, ocorria erro durante a carga de 
+   tabelas ou em outros comandos de PIN-Pad.
+ - Quando a operação é cancelada pelo usuário, passa a retornar a
+   mensagem "OPERACAO CANCELADA" ao invés de "ERRO GENERICO -210".
+     
+
+ v1.1.0.0  -  13/03/2015
+----------------------------------------------------------------------
+ - O Cliente passa a ser exibido no mesmo modo de orientação da 
+   automação.
+
+
+ v1.2.0.0  -  13/03/2015
+----------------------------------------------------------------------
+ - Melhorias na exibição das mensagens e do cliente em modo de 
+   orientação paisagem.
+
+
+v1.3.0.0  -  12/05/2015
+----------------------------------------------------------------------
+- Corrigido: Em determinados dispositivos, ao final da transação em 
+  curso, uma nova operação era automaticamente iniciada.
+- Implementada melhoria na camada Bluetooth para eliminar os erros 
+  comunicação com o PIN-Pad, que ocorriam com determinados modelos de 
+  Tablets.
+- Alterada a orientação da tela para operar somente em modo paisagem.
+
+
+v1.4.0.0  -  20/05/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Passa a utilizar o modo seguro na comunicação com o PIN-pad.
+- Passa a exibir a versão da aplicação e o ambiente utilizado 
+  na tela de configuração.
+- Corrigido: caso a senha do portador fosse digitada errada, poderia
+  ocorrer erro de timeout durante a próxima tentativa. 
+  
+  
+  v1.5.0.0  -  22/05/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Acrescentado o método obtemVersoes() para permitir que a Automação
+  Comercial possa obter a versão da biblioteca (JAR) e do aplicativo 
+  (APK) Cliente instalado. 
+  
+  
+  v1.6.0.0  -  29/05/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Acrescentada configuração para permitir operar sem PIN-pad.
+- Corrigido mecanismo para permitir que a Automação Comercial 
+  informe o sistema autorizador (rede adquirente).
+- Corrigido: em caso de queda de conexão, estava sendo apresentada a 
+  mensagem "ERRO: -1" ao invés de "QUEDA DE CONEXAO".
+- Fixada a tela de configuração na orientação horizontal (landscape).   
+- Corrigido: ao entrar na tela de configuração pela primeira vez, 
+  a activity esta sendo aberta duas vezes seguidas.
+- Corrigido: não estava retornando a data/hora da transação.
+- Corrigida a mensagem apresentada no PIN Pad em caso de erro, 
+  passível de fallback, na leitura do cartão.   
+  
+  
+  v1.7.0.0  -  19/06/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Corrigido: quando o PAN do cartão não possuia 16 dígitos, as trilhas 
+  estavam sendo enviadas para o Host corrompidas. 
+
+  
+  v1.8.0.0  -  25/06/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Corrigido: em determinados dispositivos, não era possível alterar 
+  as configurações de PIN-pad.
+- Otimizada a comunicação bluetooth para evitar erros de PIN Pad, 
+  que ocorriam em determinados dispositivos.   
+- Corrigido: em caso de timeout da resposta do Host, estava sendo
+  exibida a mensagem de erro referente à falha de conexão.
+
+
+  v3.0.0.0  -  24/08/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Permite realizar o processamento local da transação, efetuando a 
+  troca de mensagens com o Servidor somente no momento da autorização.
+- Permite que os parâmetros de comunicação sejam alterados pelo 
+  Servidor.
+- Alterada a mensagem "NAO RETIRE O CARTAO" para "PROCESSANDO".
+- Corrigido erro onde, ocasionalmente, poderia ser enviada uma 
+  confirmação em duplicidade.
+- Melhoria no protocolo de comunicação com o Servidor para diminuir 
+  o tráfego de dados (compactação).   
+- Na operação de recarga, solicita ao usuário / operador a confirmação
+  do número do telefone.
+- Corrigido: nas capturas de dados sem máscara de formatação, era 
+  possível inserir um dígito a mais do que o permitido.
+- Corrigido: durante a captura de dados, ao selecionar a 
+  "caixa de edição", o teclado do Android era exibido por cima do 
+  teclado da aplicação;
+  
+  v3.1.0.0  -  29/10/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Corrigido erro na criptografia DES;
+- Correções gerais no processamento offline.
+
+  v3.2.0.0  -  18/11/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Corrigido status de retorno na função de abertura do pinpad.
+- Ajuste no tratamento da criptografia para trilha 1 (criptografia de dados).
+- Correção da exibição das mensagens adicionais para o usuário, no caso do servidor solicitar o 
+  FinishChip e o sucesso na mesma "perna" (resultado = MUXRES_MOREDATAFNC).
+- Correção para que não seja mais exibida a opção de tipo de cartão "OUTROS" para cartões com CHIP, 
+  esta opção deve ser exibida somente para cartões private label.
+- Correção no processamento local, referente ao produto "VOUCHER FROTA".
+
+  v3.3.0.0  -  24/11/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+ - Correção no processamento local, referente ao produto "VOUCHER".
+
+  v3.4.0.0  -  07/12/2015     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+- Corrigido: Não estava permitindo transações digitadas.
+- Corrigido: Estava subindo valor da transação em transações não 
+  financeiras.
+- Corrigido: As mensagens de erro no pinpad estavam aparecendo por um 
+  tempo muito curto. 
+  
+ v3.11.0.0  -  17/02/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Implementado suporte a PINPad USB.
+*** PGWebLib ***
+- Passa a fechar o PIN-pad após o comando RemoveCard, caso isso não for feito, o PIN-pad pode ficar travado 
+  na mensagem de resultado da transação. 
+- Correção na validação se a automação adicionou os dados solicitados, retornando a solicitação sem processamento 
+  caso a captura solicitada não tenha sido feita.
+- Adicionados logs do processamento local e de envio de confirmações/desfazimentos.
+- Eliminação do status MUXCNF_PND_MOREDATA do PGWebLib, verificação necessária passa a ser feita com o nibble 
+  de transação pendente + resultado da transação = MUXRES_MOREDATA.
+- Correção de erro detectado no processamento de FinishChip em conjunto com a aprovação da transação, 
+  caso na captura anterior (solicitada pelo servidor), tivesse sido solicitado mais de um dado, sendo o dado 
+  no PIN-pad o segundo dado, poderia ocorrer o travamento da biblioteca.
+- Nova funcionalidade: Na captura de uma confirmação positiva do usuário no PIN-pad, passa a retornar para o 
+  servidor os tamanhos mínimo e máximo utilizado para os dados capturados.
+- Correção do erro que ocorria para cartões multiplos, em que era validado apenas os parâmetros de valor minimo/máximo 
+  para o primeiro produto, gerando inconsistências em caso de diferenças na faixa do valor.
+  
+ Obs: Não foi gerada versão do Cliente Android com a versão 3.10 da PGWebLib.  
+ 
+ v3.12.0.0  -  23/02/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- Aumento do buffer de recebimento de 105KB para 256KB.
+- Implementação do novo tipo de captura local "DtEmbarque".
+
+ v3.12.1.0  -  25/02/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido problema de não reconhecimento do PINPad ao iniciar a transação.
+- Correção no layout da tela de configuração para tablets de 7".
+- Melhoria na função de visualização de logs na aplicação, visando diminuir o tempo para visualização do
+  log na tela.
+  
+ v3.12.2.0  -  07/03/2016     (Interface Automação: v1.2.0.0)
+---------------------------------------------------------------------- 
+*** APLICAÇÃO ***
+- Corrigido problema na recepção de dados via USB, visando corrigir o funcionamento de alguns modelos
+  de PINPad.
+- Incluídas novas informações no log referentes ao funcionamento de PINPads USB para melhor identificação de
+  problemas.
+  
+  v3.13.0.0  -  17/03/2016     (Interface Automação: v1.2.0.0)
+---------------------------------------------------------------------- 
+*** PGWebLib ***
+- Correção no tratamento de atualização de parâmetros junto ao servidor quando o ponto de captura utiliza o 
+  processamento local. Sem esta correção, todas atualizações de parâmetros retornariam a mensagem "CONFIGURE O TERMINAL" 
+  e perderiam a transação atual, retomando o funcionamento normal somente na transação seguinte.
+- Correção no processamento local da "CriptografiaNroCartao".
+- Correção no processamento local na validação de um dado qualquer, não estava sendo repassada a mensagem a ser 
+  exibida caso o dado não fosse válido.
+- Correção no retorno do erro da função PW_iNewTransac, caso ocorresse algum problema com o PIN-pad, o erro 
+  PWRET_TLVERR estava sendo retornado erroneamente.
+- No processamento local, inversão da exibição do menu de financiamento, agora a opção "PARCELADO ESTAB." 
+  passa a ser exibido acima da opção "PARCELADO EMISSOR".
+- Correção do erro onde, na falha da chamada à função PW_iNewTransac, era retornado o recibo da última transação válida.
+- No caso do erro PWRET_HOSTCONNUNK no momento da conexão ao host, passa a inserir no log detalhes a respeito do erro.
+- No processamento local, correção nos logs, no caso de falha na validação de condição de alguma dado a ser solicitado 
+  no fluxo de capturas.
+- Correção do erro onde, no processamento local, a senha era solicitada antes dos dados da transação no caso de uma 
+  transação de "FROTA".
+- No processamento local, alteração nas validações de número de parcelas.
+- Passa a ser possível fazer a "Preferência Voucher", solicitando através do Pay&Go WEB.
+- No processamento local, correção de criptografia do número do cartão para o caso de transações digitadas.
+
+  v3.13.1.0  -  24/03/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** Aplicação ***
+- Alteração no layout da aplicação.
+- Migração do projeto para o Android Studio.
+
+  v3.14.0.0  -  19/04/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido: Estava formatando incorretamente o campo "DataHoraTransacaoOriginal" enviado da automação, ao
+  repassá-lo para o Muxx.
+- Corrigido: Não estava devolvendo o campo "NomeCartao" de volta para a automação.
+- Correção da ocorrência de "ERRO PINPAD" após uma carga de tabelas.
+*** PGWebLib ***
+- Melhoria no processo de manutenção do terminal, passa a fechar o PIN-pad antes de apagar todos os arquivos.
+- Correção no processamento da "Preferência Voucher".
+- Implementação da "Criptografia Genérica", onde passa ser possível solicitar a criptografia de qualquer dado no PIN-pad para envio ao servidor, através do arquivo
+  de inicialização do terminal.
+- Correção das mensagens de erro para os erros case PWRET_OFFINTERNAL12 e PWRET_OFFINTERNAL13.
+- Correção no "parse" das tabela de inicialização recebidas do servidor, no parâmetro "Solicitar Saque" da tabela de configuração.
+- Correção no "padding" com 0xFF no valor do PAN antes da criptografia no PIN-pad.
+- No processamento local, correção no processamento do comando "GoOnChip", caso fossem utilizados valores de Saque, Taxa de embarque ou taxa de serviço na transação,
+  esses valores não estavam sendo adicionados no valor total passado ao PIN-pad, causando uma inconsistencia de valor total.
+- No processamento local, caso a automação selecione previamente entre as opções de CREDITO/DEBITO e o usuário faça uma transação utilizando cartão com CHIP, passa a filtrar os AIDs do cartão,
+  baseado no que foi passado pela automação.
+- No processamento local, caso o PIN-pad esteja desabilitado na tabela de produtos, ao invés de dar erro passa a aceitar a transação somente como digitada.
+- No processamento local, caso seja solicitada uma criptografia no PIN-pad, e o PIN-pad esteja desabilitado, pula a criptografia e continua o fluxo da transação.
+- No processamento local, alterações na criptografia genérica, para permitir que a delimitação do dado a ser criptografado possa ser feita até o fim do dado ou até determinado
+  caractere ser encontrado.
+
+  v3.14.1.0  -  11/05/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigida ocorrência de "ERRO PINPAD" quando o PINPad retorna o ACK junto com a resposta do comando (Somente PINPads USB).
+
+
+  v3.15.0.0  -  03/06/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** GERAL ***
+- Alterada assinatura do aplicativo de br.com.setis.posplug para br.com.setis.clientepaygoweb
+
+*** APLICAÇÃO ***
+- Adição da funcionalidade de consulta de relatórios.
+- Refeito layout da tela de configurações
+- Adicionado funcionalidade de teste PINPAD
+
+*** PGWebLib ***
+- No processamento local, correção na formatação de mensagem a ser exibida no PIN-pad, caso a mensagem a ser exibida no display fosse recebid sem nenhum espaço e fosse maior que 16 caracteres.
+- No processamento local, passa a extrair o PAN das trilhas de cartões que não seguem o padrão ISO.
+- No processamento local, deixa de fazer as validações de trilha 1 e trilha 2, mesmo que solicitado pelo servidor, caso as trilhas não sigam o padrão ISO.
+- No processamento local, passa a fazer a busca de tabelas de produto pela ordem recebida nas tabelas de faixa de cartão (utilizado para selecionar a primeira ocorrência, no caso de BIN em duas faixas diferentes).
+- Implementação da transação de consulta de transações junto ao servidor Muxx.
+
+  v3.15.0.1  -  08/06/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Passa a configurar um endereço IP default de destino, dependendo do certificado SSL.
+- Correção no alinhamento de algumas mensagens de prompt de captura de dados.
+
+  v3.15.0.2  -  08/06/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- QuickFix na configuração default do endereço IP.
+
+  v3.16.0.0  -  27/06/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Correção na validação do certificado SSL, para funcionamento no ambiente Piloto.
+- Adicionada mensagem de conexão com o PINPAD ao abrir o cliente.
+- Corrigido erro na tela de consulta transações, caso uma das transações tivesse um valor alto.
+
+*** PGWebLib ***
+- Correção no roteamento de BINS, passa a remover o NSU gerado pelo HOST no momento do direcionamento para a segunda rede.
+- Implementação do tipo de financiamento CREDITO EMISSOR, para cartões de débito.
+- Alterações na implementação do produto VOUCHER FROTA.
+- Alterações na implementação do produto PRIVATE LABEL.
+- Implementação da possibilidade de alteração do texto de um item de menu através do arquivo de parâmetros.
+- Implementação do novo tratamento genérico para possibilidade de captura de cartões que não seguem a norma ISO.
+
+  v3.17.0.0  -  21/07/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido erro na tela de detalhes da transação, caso a transação tivesse um valor alto.
+- Corrigido erro em que o buffer do teclado não era limpo entre inicializações.
+
+*** PGWebLib ***
+- Correção do problema com o retorno MOREDATAFNC onde, quando uma transação era negada no FinishChip, a transação poderia ficar pendente caso a primeira tentativa de
+  envio de confirmação falhasse e a automação informasse o status da transação antes do envio da segunda tentativa.
+- Correção na comunicação por ociosidade, em algumas situações poderia ocorrer de enviar um teste de comunicação automático com número de solicitação repetido.
+
+  v3.17.1.0  -  24/08/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido erro em que o PINPAD era necessário mesmo com a utilização dele desativada nas configurações
+
+ v3.18.0.0  -  22/09/2016     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- Correção do problema com o retorno MOREDATAFNC onde, quando uma transação era negada no FinishChip, a transação poderia ficar pendente caso a primeira tentativa de
+  envio de confirmação falhasse e a automação informasse o status da transação antes do envio da segunda tentativa.
+- Correção na comunicação por ociosidade, em algumas situações poderia ocorrer de enviar um teste de comunicação automático com número de solicitação repetido.
+
+ v4.0.0.0  -  11/01/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido envio indevido de desfazimento por queda de energia na transação seguinte a realizada.
+- Remoção de trechos de log desnecessários, visando diminuir a poluição de informações.
+- Passa a manter o app sempre ativo quando rodando em 1º plano.
+*** PGWebLib ***
+- Na função PW_iAddParam, passa a checar a integridade do identificador do parâmetro adicionado (Passa a retornar PWRET_INVPARAM
+  para identificadores fora da norma TLV).
+- Correção no tratamento das criptografias de dado no PIN-pad solicitadas pelo servidor, caso alguma outra captura fosse
+  solicitada junto com a criptografia, um erro era gerado.
+- Criado novo tipo de financiamento: FINTYPE_PREDATADOPARC (Pré-datado parcelado).
+- Passa a solicitar uma atualização de parâmetros, junto ao servidor, após qualquer atualização de versão.
+- Passa a mascarar dados sensíveis para envio ao servidor, caso o mesmo tenha a capacidade de abrir esses dados.
+- Implementação dos tratamentos necessários para o funcionamento do "valor reajustado".
+- Correção no número de solicitação enviado ao Muxx em caso de desfazimentos, quando ocorreu durante a transação uma
+  atualização de parâmetros ou um envio de informações de um novo PIN-pad.
+- Ampliação do tamanho do buffer para captura de NSU da transação.
+- Limpa buffers contendo dados sensíveis para PA-DSS.
+- Alteração no esquema de leitura da mensagem vinda do Muxx: passa a efetuar a leitura byte a byte.
+
+ v4.0.1.0  -  12/01/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido crash que ocorria em alguns devices logo no boot da aplicação.
+
+ v4.0.2.0  -  27/01/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Implementada possibilidade de a automação passar o CPF/CNPJ do
+  estabelecimento em que será efetuada a transação, caso o PDC opere
+  em modo multiestabelecimento (nota: se a automação não passar o CPF,
+  será exibido um menu de seleção com os estabelecimentos).
+- Passa a validar a data de validade do certificado (a partir de/valido até),
+  evitando a ocorrência de "ERRO -7" quando o certificado está vencido ou
+  ainda não válido.
+- Melhorias nas mensagens de erro de comunicação em modo SSL.
+
+ v4.0.10.0  -  13/02/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Implementado tratamento para Comando Genérico ao PIN-Pad (PP_GenericCmd).
+- Passa a tratar mensagens de usuário no final de uma transação.
+- Corrigido erro em que não era validado o tamanho minimo numa captura de
+  dados, caso o mesmo tenha máscara de captura.
+- Passa a limpar o dado capturado, caso o mesmo esteja fora da faixa
+  de validação e precise ser novamente capturado.
+- Corrigido erro em que era acatado valor zerado da automação.
+- Corrigida validação do número de parcelas vindas da automação.
+- Corrigido erro em que caso não fosse recebido um nome de provedor
+  do Muxx, não estava sendo retornado para a Automação
+  PROVEDOR_DESCONHECIDO.
+- Passa a retornar um erro mais coerente no caso de o socket estar
+  fechado na hora de enviar dados para o host.
+*** PGWebLib ***
+- Correção em um erro na mensagem automática pós troca de versão, caso
+  a porta do PIN-pad fosse trocado antes do envio da mensagem para o
+  Pay&Go WEB o terminal poderia ficar travado retornando a mensagem
+  "ERRO PINPAD" sem dar acesso ao menu para reconfiguração da porta de comunicação.
+- Deixa de retornar erro na execução de COMAND_RMVCARD. Mesmo que a remoção do cartão
+  não seja executada corretamente, a transação é aprovada.
+- Caso ocorra algum erro após a aprovação da transação pelo Pay&Go WEB,
+  apaga os comprovantes.
+- Correção do erro onde a mensagem "VALOR NAO ATINGE MINIMO PERMITIDO" era
+  apresentado no ANDROID indevidamente.
+
+ v4.0.10.1  -  17/02/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido erro em que o PIN-Pad era fechado antes do fim da transação,
+impossibilitando a possível exibição de mensagens para o usuário no PIN.
+- Corrigido erro em que durante a execução de uma confirmação de dado
+no PIN-Pad, não era exibida a mensagem de notificação na tela da aplicação.
+
+ v4.0.10.2  -  21/03/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigida temporização das mensagens finais a serem exibidas para o
+usuário, acatando sempre o que vem do host.
+- Para menus com apenas uma opção, caso a mesma opção venha pré-selecionada,
+o menu não é mais exibido, com a unica opção sendo automaticamente selecionada.
+
+ v4.0.11.0  -  20/04/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido o tratamento nas entradas de valor para a aplicação (valor total,
+  taxa de serviço e taxa de embarque), caso um valor com formato inválido seja
+  inserido, será retornada a mensagem "VALOR INVALIDO".
+- Alteração no padrão de horário dos logs para 24 horas.
+- Separação dos logs de Pin-pad dos logs de aplicação.
+- Novas informações acrescentadas aos logs de aplicação.
+- Mascaramento de informações sensíveis nos logs de PIN-pad.
+*** PGWebLib ***
+- Correção na informação PWINFO_CNFREQ retornada para a automação, no caso de transações negadas pelo Muxx (Status = 0x02), o PGWebLib
+  estava solicitando confirmação por parte da automação erroneamente.
+- Passa a enviar o nome do autorizador para o Muxx em qualquer transação.
+- Mudança no comportamento de replicação da referência local da transação, deixa de replicar o primeiro valor recebido do servidor para replicar sempre o
+  último valor recebido.
+- Deixa de considerar obrigatórios na respostas do Muxx os campos:
+   - MUXTAG_PARAMVER (continua sendo obrigatório para instalações e atualizações de parâmetros), caso esse dado não seja recebido, será considerado
+     atualizado o arquivo de parâmetros atual.
+   - MUXTAG_SRVAUTH, caso esse dado não seja recebido, será reenviado o último valor armazenado.
+   - MUXTAG_TRNSTATUS, caso esse dado não seja recebido, não serão repassados para a automação os detalhes da transação que está pendente.
+
+ v4.0.11.1  -  15/05/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Correção para o problema onde o NSU da transação era retornado truncado para a automação em algumas situações.
+- Ampliação do tamanho de alguns campos da estrutura de armazenamento de dados da transação.
+
+ v4.0.13.0  -  17/05/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- Implementação dos ajustes necessários para que o "roteamento de redes" funcione corretamente com processamento local ativo.
+- Ajuste para funcionamento de cartões sem contato no processamento local.
+- Correção na captura do código de segurança, caso fosse digitado os valores "000" ou "0000" era solicitado o motivo da não captura de forma equivocada.
+
+ v4.0.13.1  -  02/06/2017     (Interface Automação: v1.2.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Correção para o problema onde o NSU da transação original, adicionado pela automação, era truncado antes do envio ao PGWebLib em algumas situações.
+
+ v4.0.14.0  -  13/06/2017     (Interface Automação: v1.3.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Removido o teclado das telas de display.
+*** PGWebLib ***
+- Correção para o erro de alguns modelos de PIN-Pad que retorna o número de cartão errado para cartões com trilha 2 fora no padrão ISO.
+
+ v4.0.14.1  -  14/07/2017     (Interface Automação: v1.4.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Implementada personalização da interface do usuário, parametrizada
+pela automação comercial.
+- Passa a retornar os dados de transações pendentes de confirmação
+com o Host.
+- Passa a resolver transações pendentes com o Host, caso solicitado
+pela automação.
+- Corrigido problema de NullPointerExecption durante a thread de
+conexão, caso não haja conexão com a internet.
+- Corrigido problema de NullPointerExecption no pareamento do
+PIN-Pad bluetooth, caso não seja encontrado nenhum PP ou se algum
+dado não foi obtido.
+
+ v4.0.14.2  -  18/07/2017     (Interface Automação: v1.4.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido retorno do Provedor para a automação ao final das
+transações.
+- Alterado Application ID para a aplicação com certificado de produção.
+
+ v4.0.14.3  -  10/08/2017     (Interface Automação: v1.4.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigida personalização do teclado, caso a primeira tela do cliente
+fosse uma captura de dados.
+- Corrigido crash que ocorria na personalização do menu, caso a tela
+anterior não fosse um display simples.
+- Corrigido retorno do NSU do Host da transação pendente, onde estava
+sendo retornado o NSU Local no campo.
+
+ v4.0.35.0 -  01/11/2017     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Passa a utilizar a versão v1.5.0.0 da biblioteca Interface Automação.
+- Ajustes para tratar o novo meio de se passar o provedor que irá
+processar a transação.
+- Passa a logar o ID da transação fornecido pela Automação.
+- Na funcionalidade de solução de pendências, passa a checar se o objeto
+com os dados da transação pendente está nulo.
+- Alterado prompt de inicialização da aplicação, pois exibia a mensagem
+"CONECTANDO PINPAD..." mesmo se a aplicação estivesse configurada para
+trabalhar sem PIN-pad.
+- Passa a exibir um menu, por até três vezes, solicitando se deve ser
+efetuada uma nova  tentativa de conexão com o PIN-pad, caso a conexão falhe.
+- Removido mecanismo que tentava conectar o socket bluetooth com o PIN-pad
+por três vezes, devido ao uso do menu.
+- Removido log das mensagens de notificação do PIN-Pad, pois estava
+poluindo demais o arquivo.
+- Passa a exibir um menu na confirmação de dados, ao invés de um
+display.
+*** PGWebLib ***
+- Implementação dos tratamentos necessários para o funcionamento do novo retorno do servidor, que
+mantém a conexão ativa sem nenhuma interação com o usuário.
+- Implementação da possibilidade de conexão em múltiplos endereços através de configuração via servidor.
+- Correção na criptografia de dados no PIN-pad, solicitadas pelo servidor.
+- Correção da captura de dados solicitados pelo servidor ("na nuvem"), existia um erro onde, mesmo o
+servidor solicitando a captura de mais de um dado, só era capturado um dado por vez ("por perna"),
+agora todos os dados são capturados de uma só vez.
+- Tratamento na função de criptografia de dados (Encrypt Buffer) para suportar novos métodos de criptografias ABECS.
+- Correção no processo de criptografia dos dados com chave DUKPT.
+- Tratamentos para capturar todas as informações disponíveis em pinpad ABECS.
+- Correção no processamento offline para cartões CTLS simulando tarja.
+- CA17-0049: Implementação do roteamento de bandeiras para os cliente Pay&Go WEB.
+- CA17-0049: Correção na obtenção do timestamp das tabelas, caso uma rede tenha sido pre-selecionada pela automação.
+- CA17-0049: Correção no tratamento da venda pre-autorizada.
+- CA17-0049: Melhoria no tratamento da carga de tabelas no PIN-pad em transações sem roteamento de bandeiras.
+- Implementação do tratamento para trilhas do padrão ANSI.
+- CA17-0049: Correção para não capturar tipo de financiamento localmente para transações do autorizador CIELO.
+- Deixa de retornar erro, caso receba um arquivo de parâmetros sem nenhuma tabela para carregar, neste caso,
+simplesmente passa a limpar o PIN-pad.
+- Passa a enviar confirmações/desfazimentos pendentes antes da execução do processamento local, caso
+isso não for feito, as informações poderiam ser perdidas, ocasionando transações pendentes.
+- CA17-0059: Correção na exibição do valor com saque no PIN-Pad para transações via tarja.
+- Correção no tratamento da mensagem de resultado, para o caso de transações em que o PIN-pad foi
+trocado antes do envio de uma confirmação para o Muxx.
+- No processamento local, deixa de permitir que transações de pre-autorização possam ser aprovadas offline.
+- CA17-0061: Implementação do envio de advice de transações negadas localmente para o Muxx.
+- Otimização dos logs de comunicação.
+- CA17-0064: Implementação de uma função para retornar todos os AIDs que estão habilitados para processamento
+de cartão via chip no Pay&Go WEB e uma função para retornar se um cartão está habilitado para processamento
+de cartão via tarja no Pay&Go WEB através de suas trilhas.
+- CA17-0064: Implementação da exibição de uma mensagem específica para o erro ocorrido quando o usuário
+aproxima dois cartões sem contato do leitor de cartão.
+- CA17-0064: Correção na validação de condições para processamento local com a tag MUXTAG_PAYMENTMODE
+(pagamento de transações de recarga com processamento local).
+- CA17-0060: Implentação de uma nova função para realizar a criptografia com base nos parâmetros informados
+no XML de instalação do Pay&Go Web.
+
+ v4.0.40.0 -  03/01/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- CA17-0067: Correção no fallback para transações com cartão sem contato.
+- CA17-0075: Ajustes para aplicação do padding no final do buffer a ser criptografado.
+- Ampliação no buffer de recebimento de dados de 256KB para 512KB.
+- Correção na função de criptografia específica.
+- Criação de uma nova função para obter determinados dados da trilha caso o Muxx não
+solicite a captura.
+- CA17-0079: Roteamento de cartões com mesmo AID para redes diferentes.
+- CA17-0079: Criação da possibilidade configurável de solicitação do tipo de cartão (CREDITO/DEBITO) antes da solicitação do cartão
+- CA17-0079: Caso a transação automática pós atualização de versão falhe, passa a atualizar a mensagem exibida para o usuário.
+- CA17-0083: Implementação da desconexão do socket sempre antes de uma nova tentativa de conexão com o servidor Pay&Go Web,
+a ausência desta implementação poderia causa "QUEDA DE CONEXAO".
+- CA17-0083: Caso ocorra o erro PP_CTLSSMULTIPLE, deixa de desligar o leitor sem contato, mantendo a possibilidade de uso
+de cartão sem contato novamente.
+- CA17-0079: Passa a capturar o AID de um cartão com chip não aceito no PP_GetCard via seleção direta, somente se configurado
+via servidor.
+- CA17-0087: Passa a permitir transações de débito com o número do cartão digitado, somente quando algum produto disponível
+para o cartão permitir esse modo de entrada de cartão.
+- CA17-0087: Correção nas funções de extração de BIN das trilhas do cartão.
+- CA17-0087: Passa a permitir somente uma chamada à função PW_iInit após o carregamento da biblioteca.
+- CA17-0088: Para uma transação negada no FinishChip, passa a subir um advice e um desfazimento para o servidor.
+- CA17-0090: Padronização na mensagem de erros em log.
+- CA17-0090: Melhorias e otimizações relacionadas ao processamento em Threads.
+- CA17-0091: Correção no processo de roteamento de cartões com o mesmo AID.
+- CA17-0093: Ajuste no padrão da data de vencimento durante o processo de criptografia de dados.
+
+ v4.0.41.0 -  24/01/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Acrescentada flag informando a capacidade do Cliente Android realizar o roteamento de bandeiras.
+- Corrigido: Passa a gravar a informação de confirmação apenas se a transação corrente exigir
+confirmação.
+- Corrigido: Durante a captura de dados digitados, não estava acatando o bypass do dado caso a flag
+indicativa de bypass estivesse habilitada e o usuário apertasse enter sem digitar nenhum dado.
+*** PGWebLib ***
+- CA18-0004: Alteração do tamanho máximo do CVC2, de 4 para 5, quando solicitado ao usuário.
+- CA18-0007: Correção no fluxo da solicitação do tipo de cartão quando utilizado o roteamento
+de bandeira. O mesmo era solicitado de forma errada, mesmo tendo já sido selecionado.
+
+ v4.0.42.0 -  06/02/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- CA17-0010: Correção da exibição do log do finishchip quando executado. Antes não era logado
+quando o comando era executado com sucesso.
+- CA18-0012: Inclusão do tratamento para captura de taxa de embarque durante o processamento local.
+- CA18-0013: Tratamento para a execução do comando EBX quando utilizado comandos de PIN-Pad
+diretamente na PGWebLib.
+- CA18-0013: Passa a subir o tipo de chave do PIN-Pad (ABECS ou não) quando utilizado a PGWebLib diretamente.
+- Alterado o valor de timeout de comunicação (instalação) de 60 para 300 segundos.
+
+ v4.0.43.0 -  27/02/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- CA18-0014: Criação de nova função para que a automação possa solicitar a captura de um dado no PIN-pad.
+- CA18-0016: Tratamento para o código resultado do FinishChip quando utilizado PIN-Pad ABECS.
+- CA18-0020: Correção no tratamento para captura de dados do usuário, por exemplo, a captura de CPF.
+- CA18-0018: Correção na exibição do valor total quando solicitado a senha do cartão.
+- CA18-0019: Correção na mensagem exibida ao usuário quando a transação era negada pelo host.
+- CA18-0021: Ampliação nos itens de menu possíveis na interface com a automação, de 20 para 40.
+- CA18-0021: Passa a retorna PWRET_OK para a automação, caso seja chamada a função PW_iPPAbort e não esteja sendo usado PIN-pad.
+- CA18-0021: Correção do problema onde, quando a transação era negada no FNC (cartão ou host), eram enviados dois desfazimentos.
+
+ v4.0.44.0 -  26/03/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- CA18-0024: Correção no tratamento para captura de dados do portador do cartão via PIN-Pad.
+
+ v4.0.45.0 -  17/10/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+- Correção para não perder conexão com PIN-Pad USB.
+
+ v4.0.44.1 -  19/10/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Criação de uma lista de PIN-Pad suportados via USB.
+
+ v4.0.44.2 -  07/11/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Ajustado layout para suportar telas maiores.
+- Ajustado para aplicação ser exibida em fullscreen.
+
+ v4.0.44.3 -  14/11/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Correção na exibição em alguns monitores: era criada uma tarja branca no navigationBar ao
+ficar fullscreen.
+
+ v4.0.44.4 -  26/11/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Incrementada a target version do android para 27(Oreo).
+
+ v4.0.44.5 -  29/11/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Ajustado o import da Activity BtDevices no manifest, devido ao crash que ocorria ao abrir a tela
+de pareamento de dispositivos bluetooth introduzido na versão anterior.
+
+ v4.0.53.0 -  18/07/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Melhorias no tratamento de versão, passando a usar a versão do Gradle
+- Ajustes para compatibilização da solução com PIN-Pads ABECS.
+- Melhorias no tratamento da recepção de dados do PIN-Pad.
+
+*** PGWebLib ***
+- Correção no indice de verificação de chaves do PP.
+- CA18-0027: Passa a exibir a confirmação do dado digitado captura pelo PIN-Pad quando
+solicitado pelo Muxx.
+- CA18-0033: Tratamento para a execução correta do comando CNG em PIN-Pad ABECS.
+- CA18-034:  Passa a ser possível exibir mensagens adicionais ao operador/portador a qualquer momento da transação.
+- CA18-0036: Implementação da transação de pagamento utilizando saldo do portador (programa de fidelidade).
+- CA18-0038: Correção na seleção e montagem no menu para cartões private label com aplicação crédito.
+             Correção no comando GOX (SPE_EMVDATA) em PP ABECS.
+- CA18-0036: Passa a armazenar o estado da inserção de cartão EMV através da função PW_iPPWaitEvent para filtrar
+transações sem cartão.
+- CA18-0036: Passa a efetuar a "preferência voucher" somente se o cartão já tiver sido capturado.
+- CA18-0041: Passa a exibir o nome fantasia do estabelecimento na tela de captura de valor.
+- CA18-0040: Correção do conflito entre validação de CNPJ e a aceitação de bypass na digitação do valor,
+caso a situação acima ocorresse era retornado "PARAMETRO INVALIDO".
+- CA18-0040: Correção para as operações de venda com nomes de exibição diferentes, somente a primeira era
+exibida no menu.
+- CA18-0041: Passa a enviar um advice para o servidor no caso de falhas de comunicação.
+- CA18-0042: Correção de envio de SMS para cartões com tarja
+- CA18-0042: Tratamento para excluir o ponto de captura quando há uma falha de
+comunicação ou instalação no POS.
+- CA18-0047: Correção para o erro onde a comunicação com o PIN-pad poderia ser feita sem o uso da
+criptografia dos dados sensíveis
+- CA18-0046: Correção onde o PDC era apagado erroneamente em uma falha de comunicação do com MUXX.
+- Criação de novo tipo de transação para cancelamento de pagamento de conta.
+- CA18-0043: Correção na mensagem de confirmação de dados no PIN-Pad.
+- CA18-0046: Correção na busca do AID utilizado nas tabelas de instalação do PGWeb para PP Ingênico.
+             Tratamento de nova carga de tabelas caso o usuário cancele (Roteamento).
+- CA18-0048: Tratamento para retornar o nomo campo (Nome do cartão padronizado) para a automação.
+- CA18-0050: Busca do AID será realizado somente no roteamento.
+- CA18-0051: Remoção da acentuação e conversão para maiúscula quando consultado o nome do EC
+no XML de instalação.
+- CA18-0052: Ajustes nas tags de comunicação entre Muxx e ponta.
+- CA18-0057: Tratamento para PIN-pad PPC920 com versão antiga referente aos AIDs CTLS.
+
+ v4.0.64.0 -  28/09/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- CA18-0061:  Correção no processamento local do tipo de cartão e tipo de financiamento, onde
+              era possível que a biblioteca enviasse a solicitação de captura seguinte sem
+              apagar os dados da antiga.
+
+- CA18-0068:  Implementado camada de tratamento comum de PIN-pad.
+              Ajustado a seleção do AID do cartão em caso de transação negada.
+              Correção do comando ChangeParam para PP não ABECS.
+
+- CA18-0063:  Correção na carga de tabelas do roteamento, onde caso o perfil possuisse alguma rede
+              sem CHIP, por exemplo Conductor, a ponta realizava a carga de tabela na posição 00
+              já que o índice era recebido zerado.
+              Correção no tratamento específicos de PIN-pad, onde a seleção de tratamento não era
+              limpa após a troca de PIN-Pad e em algumas situações o tratamento era anulado.
+			  Caso exista somente uma opção para operação de venda, volta a selecionar essa operação
+              única automaticamente.
+
+- CA18-0070:  Ajustes para a seleção correta da aplicação utilizada quando utilizado o tratamento
+              de determinados PP.
+              Correção no envio dos dados ao PGWEB quando utilizado a PGWEB, problema ocorria somente
+              quando utilizado um PP ABECS pela primeira vez na PGWEBLIB.
+
+- CA18-0070:  Quando utilizado qualquer PIN-pad que não esteja na lista de tratamento, a biblioteca
+              não seguia o fluxo corretamente.
+
+- CA18-0067:  Adicionado tratamentos para o retorno da Tag MUXTAG_AUTHSYSTEXTENDED com as informações
+			  do atributo SistemaAutorizador nas transações.
+
+- CA18-0074:  Correção no tratamento da função inicia por tipo cartão, onde era verificado de forma errada
+              o nome do tipo de cartão que deveria ser exibido caso o Muxx enviasse para ponta.
+
+              Correção do campo nome do produto que estava sendo enviada de forma errada para o Muxx,
+              fazendo com que algumas transações ocorresse alguns problemas.
+
+
+- CA18-0077: Passa a descartar as advices que foram negadas pelo PGWEB. As mesmas serão
+             evidenciadas nos logs.
+
+- CA18-0078: Correção na seleção de AID para determinar qual rede será utilizada no roteamento.
+
+- CA18-0083: No comando PP_iRemoveCard, caso o PIN-pad não envie a mensagem de remoção do cartão
+             para exibição no checkout via PP_NOTIFY, passa a forçar a exibição da mensagem.
+
+- CA18-0085: Caso exista uma atualização de parâmetros pós troca de versão pendente, a chamada
+             de PW_iGetResult com PWINFO_IDLEPROCTIME passa a retorna o horário atual.
+             Caso seja chamado PW_iIdleProc e exista uma atualização de parâmetros pós troca de
+             versão pendente, passa a executá-la imediatamente.
+
+ v4.0.67.0 -  26/11/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+*** PGWebLib ***
+- CA18-0088: Correção na função PP_iEncryptBuffer, que estava enviando valores para checagem das
+             chaves MK/SK de dados equivocados para o Muxx.
+
+- CA18-0094: Implementado o menu para exibir o ponto de captura.
+
+- CA18-0093: Correção no envio de advice para o Muxx, afim de evitar que o PdC fique travado.
+
+- CA18-0096: Tratamento para que seja solicitado o tipo de cartão em cancelamento quando
+             a transação iniciar por tipo de cartão.
+
+             Ajustado o retorno do getcard, que poderia gerar um código de resultado positivo
+             para a advice.
+
+- CA18-0099: Adiciona tratamento para retorno do PP_iGetInfo ao verificar as informações do
+             pinpad a serem enviadas ao PGWeb.
+             Isso evita que sejam adicionadas strings incorretas ao buffer de comunicação.
+
+- CA18-0096: Correção para que o PIN-Pad não fique sem resposta quando realizado uma carga de
+             tabelas com roteamento de bandeiras ativo.
+
+- CA18-0104: Correção do tratamento da Tag CARDEXP, zerando o conteúdo de relativo a ela
+             em psOutput caso ela não esteja presente.
+
+- CA18-0105: Altera o funcionamento das funções iLoadTableRoteamento e iCheckRoutingTables para
+             verificar todos os estabelecimentos e não quebrar o laço no id 0.
+
+ v4.0.69.0 -  13/12/2018     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Ajustado layout para dispositivos Samsung: parte do teclado estava ficando cortada.
+- Passa a utilizar a Interface Automação v1.6.0.0, com a adição dos seguintes campos de
+saída: saldoVoucher, nomeEstabelecimento, panMascaradoPadrao, nomeCartaoPadrao, nomePortadorCartao e
+aidCartao.
+
+*** PGWebLib ***
+- CA18-0107: Removido a funcionalidade de alterado o retorno na função (PW_iExecTransac)
+             para alteração do fluxo de remoção do cartão.
+
+- CA18-0115: Correção no fluxo de cancelamento quando utilizado a opção de tipo de cartão habilitada.
+
+- CA18-0116: Melhoria no tratamento de arquivos na atualização de versão.
+- CA18-0116: Correção na diferença de tempo entre a exibição da mensagem de espera do cartão para o
+             operador para a mensagem exibida no leitor de cartão.
+
+ v4.0.69.1 -  21/12/2018     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido: estava tentando enviar um comando GTS durante a execução de um comando GetCard,
+causando erro na transação (situação ocorria apenas se Roteamento de Bandeiras ativado).
+- Para PIN-Pad ABECS, passa a tratar o comando EBX.
+- Corrigido crash ao tentar obter os logs para envio via e-mail (ocorre em algumas versões de
+Android).
+- Ajuste no envio do campo nomePortadorCartao para a automação.
+- Melhorias nos logs e na comunicação com PIN-Pad USB.
+- Ajuste no fluxo de Configuração pós-instalação, passando a exibir o teclado na tela de
+exibição do ID do Ponto de Captura, permitindo ao usuário prosseguir com o fluxo.
+- Passa a exibir, no cliente, a mensagem de ocorrência de erros no processamento do cartão (mensagem
+só estava sendo exibida no PIN-Pad).
+
+ v4.0.73.0 -  29/01/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÂO ***
+- Refactoring completo do Cliente Pay&Go Web Android.
+- Passa a utilizar a PGWebLib como componente, compilada para Android.
+- Principais mudanças:
+    - Alterações e melhorias gerais de layout.
+    - Inclusão de animações de processamento.
+    - Remoção de código nativo (em C), passando este a ser compilado
+    separadamente.
+    - Melhorias em mensagens e nos fluxos de tela.
+
+*** PGWebLib (v4.0.73.0) ****
+- CA19-0001: Acrescentado tratamento para retorno de erro específico (MUXRES_DESTINATIONERR) do Muxx.
+- CA19-0005: Acrescentado tratamento para erro (MUXRES_ENVIRONMENTERR) do Muxx.
+- CA19-0012: Correção de possível invasão de memória na busca por um estabelecimento no arquivo de parâmetros.
+
+ v4.0.75.0 -  01/03/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÂO ***
+- Implementada a possibilidade de transação digitada.
+- Ajustes gerais nas telas de display (centralização e temporização).
+- Ajuste na exibição da versão e do certificado na tela de configurações.
+- Diminuição do tempo de timeout de entradas digitadas para 30s.
+- O botão voltar passa a cancelar as operações (somente se captura em curso).
+- Ajustes nas threads de segundo plano.
+
+*** PGWebLib (v4.0.75.2) ***
+>>> Android
+- Correções no mecanismo de sincronismo das threads que tratam os comandos de PP.
+- Criados métodos para captura do número do cartão através de digitação.
+- Passa a não executar mais um close automático ao final da função execTransac.
+- Passa a carregar as configurações do PIN-Pad no método newTransac.
+- Corrigido: Para arquiteturas de 64bits, estava travando nas funções de criptografia RSA devido ao
+  tamanho dos tipos das variáveis utilizadas.
+- Corrigido: Em transação administrativa, ao selecionar o menu "GERAL", era invocado um onMoreData
+  com o mesmo menu.
+- Reimplementação da função de criptografia RSA, utilizando a API de Android, visando melhor
+  desempenho.
+- Implementação do método "cancelTyping" para permitir que seja cancelada a entrada manual do número
+  do cartão.
+- Corrigido: Não inicializava o PIN-Pad quando acionada a função idleProc.
+
+>>> PGWebLib
+- CA19-0018: Adicionado tratamento quando recebido comando genérico (GEN) do tipo "02".
+- CA19-0019: Correção na recepção da session key quando feito o encrypt buffer com o algoritmo
+             MK DES.
+- CA19-0025: Melhoria no tratamento de retorno de erros (PWRET_TLVERR, PWRET_SRVINVPARAM, PWRET_REQPARAM)
+			 nos logs de comunicação.
+- CA19-0026: Removido a alteração da troca do número de requisição em transações de atualização
+             de parâmetros.
+- CA19-0028: Deixa de exibir o menu com operações genéricas no caso de ocorrer um erro de acesso ao arquivo
+             de parâmetros durante uma transação financeira.
+- CA19-0029: Adição de proteções nos retornos das funções que manipulam de arquivos XML.
+- CA19-0030: Correção no retorno de erros na atualização de parâmetros de comunicação em caso de
+             ambiente inválido.
+- CA19-0034: Correção para o tratamento de troca de ambiente automático.
+
+    * minSdkVersion = 19
+    * targetSdkVersion = 28
+    * compileSdkVersion = 28
+    * abi = armeabi-v7a e arm64-v8a
+
+ v4.0.75.90 -  16/04/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido crash na aplicação ao realizar uma transação de recarga.
+- Corrigido crash na configuração do cliente em tablets.
+- Corrigido comportamento ao cancelar uma transação digitada.
+
+*** PGWebLib (v4.0.75.90) ***
+>>> PGWebLib
+- Removido o envio de advice, pois caso este seja negado pelo Muxx ou falhe, o PdC fica inoperante,
+não sendo possível transacionar.
+
+>>> Módulo Android <<<
+- Corrigidas multiplas chamadas à IdleProc.
+- Corrigido o fechamento indevido do PIN-Pad durante uma confirmação.
+
+ v4.0.80.0 -  13/05/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigida a consulta de transações na aba "TRANSAÇÕES".
+- Ajustes gerais nas telas de display (centralização).
+- Melhorias no comportamento do teclado da tela de inserção ou digitação do número do cartão.
+- Corrigido o comportamento ao inserir taxa de embarque e/ou taxa de serviço R$ 0,00.
+- Corrigido layout do teclado no modo paisagem.
+- Corrigido o capturar logs na aba "LOG".
+
+*** PGWebLib (v4.0.80.1) ***
+>>> PGWebLib
+- CA19-0031: Implementado o novo menu de carteira digital.
+             Redes com QRCode passa a funcionar mesmo com o roteamento configurado.
+             Adicionado os fontes de QRCode na camada da PGWeblib.
+- CA19-0041: Padronização das funções de log.
+- CA19-0040: Não deixa realizar bypass na senha WIFI.
+- CA19-0043: Adicionado tratamentos para retorno da tag PWINFO_WALLETUSERIDTYPE.
+- CA19-0046: Adicionado tags PWINFO_UNIQUEID e MUXTAG_UNIQUEID e seus respectivos tratamentos para recebimento.
+- CA19-0047: Passa a alterar a mensagem de pré envio de mensagem ao servidor conforme sinalizado na instalação do pdc.
+- CA19-0051: Correção [SAC 2019010810000019] : Utilizando a adquirente Cielo, ao realizar a transação com o produto
+             Alelo Auto com PIN-pad ABECS, a transação era negada com "Erro PIN-pad". O erro ocorria devido a ausência
+             da conversão de um comando da biblioteca compartilhada para ABECS. Intuito era obter informações da tag
+             DF70.
+- CA19-0053: Correção (interna): Passa a validar o tipo de identificação da carteira digital com o meio de pagamento
+             informado pela automação, caso nenhum autorizador atenda os requisitos, é retornado o erro de meio de
+             pagamento inválido.
+             Correção (interna): Caso a automação informasse a o tipo de pagamento como cartão e estivesse associado
+             uma rede que suporta somente cartão e outra que suporta somente QRCode, a seleção de autorizador não era
+             realizada corretamente.
+             Correção (interna): Utilizando a nova versão do PdC, ao realizar a releção do tipo cartão, as opções não
+             estavam sendo filtradas mesmo após realizar a pré seleção da aplicação no PIN-pad, fazendo com que todas as
+             opções de tipo de cartão habilitadas na inicialização fossem exibidas.
+             Correção (interna): Caso a automação não informe a forma de pagamento ou a identificação do portador, a
+             ponta irá popular esses dados com base nas informações da inicialização referente aos campos citados.
+- CA19-0055: Correção (interna): A ponta passa a utilizar o índice da aplicação do PIN-pad obtido do XML de inicialização.
+             Anteriormente, essa informação era recebida "em uma perna online" do Muxx e acarretava um problema de seleção
+             da aplicação do cartão na integração da RV com Stone.
+- CA19-0056: Correção (interna): O PdC irá popular e enviar corretamente as informações sobre a modalidade da transação
+             (Cartão ou Carteira digital) e identificação da carteira digital (QR Code e CPF) quando não informado pela
+             automação.
+             Correção (interna): Correções para os parâmetros de tentativas de conexão e tempo em segundos de timeout de
+             resposta. Os parâmetros estavam sendo populados com o valor zerado após a troca automática de ambiente.
+- CA19-0057: Correção (interna): Terminal passa a efetuar até três tentativas de envio da mensagem de
+             conclusão de telecarga para o RDS7.  Caso todas falhem, a necessidade de envio dessa
+             mensagem é desmarcada, pois essa informação será enviada na próxima telecarga.
+             Anteriormente, ele tentava enviar a conclusão e, caso falhasse, cancelava o processo de
+             telecarga. Isso gerava um problema que,  caso o terminal terminasse de fazer uma telecarga
+             e se tentasse fazer uma nova pelo menu, o processo era abortado e retornava erro.
+- CA19-0059: Correção (interna): A mensagem "modalidade de pagamento" estava sendo cortada devido a
+             limitação de display do POS. A mesma foi substituida por "forma de pagamento".
+             Correção (interna): A mensagem de pré conexão exibida no terminal não estava centralizada.
+             Correção (interna): Passa a não validar a modalidade de pagamento em operações administrativas.
+             Caso uma operação fosse informada diretamente para a camada da lib, a mesma iria selecionar o
+             autorizar sem haver necessidades em alguns casos, fazendo com que o erro de modalidade inválida
+             fosse retornado.
+- CA19-0060: Nova funcionalidade: Afim de melhorar a performance da PGWebLib, o arquivo de inicialização passa a
+             ser lido ao inicializar a biblioteca.
+- CA19-0062: Nova funcionalidade: Passa a ser possível alterar o nome do endereço de destino dos pontos de captura tipo
+             PGWebLib para conexão ao Muxx sem a necessidade de mudança no certificado SSL.
+- CA19-0063: Nova funcionalidade: A razão social e CNPJ do estabelecimento onde o ponto de captura está cadastrado
+             passa a ser exibido na tela de descanso e valor do POS.
+- CA19-0064: Correção [SAC 2019041210000023]: Passa a fazer a checagem de integridade da mensagem de advice antes de
+             envia-la ao Muxx, isso evita que o PdC fique travado ao tentar enviar um advice repetidas vezes sem sucesso.
+- CA19-0063: Correção (interna):  Passa a enviar o advice após a captura dos dados locais da transação, o envio era feito no
+             inicio, fazendo com que o POS ficasse demorando na "pré conexão".
+- CA19-0063: Correção (interna): Adicionado timeout na verificação do registro de comunicação feita antes de uma conexão.
+- CA19-0063: Correção (interna): Terminal deixa de esperar por até 2 segundos durante a remoção do cartão.
+             Essa espera gerava uma tela branca por 2 segundos após o cancelamento da operação.
+- CA19-0063: Correção (interna): Passa a validar algumas informações na montagem da advice, afim de evitar o problema de
+             "Erro de comunicação, mensagem inválida".
+- CA19-0063: Nova funcionalidade: Algumas mensagens de erros irão apresentar detalhamento utilizando um código de retorno
+             específico da camada mais baixa de comunicação. Tais como "Não foi possível se conectar", "Falha na autenticação WIFI",
+             entre outras.
+- Adicionados parâmetros da estrutura de configuração que foram removidos, visando manter
+compatibilidade com versões antigas.
+
+>>> Módulo Android <<<
+- Implementado o comprovante gráfico (gerado em formato bitmap).
+- Ajuste na função idleProc.
+
+ v4.0.80.1 -  21/05/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigida a exibição da mensagem “CARTAO COM CHIP INSIRA O CARTAO”.
+- Melhoria no alinhamento das mensagens exibidas durante a captura de dados.
+- Corrigida a mensagem exibida na digitação de senha incorreta.
+- Limitado o número de vezes para a digitação de senha inválida.
+
+*** PGWebLib (v4.0.80.3) ***
+>>> PGWebLib
+- Exibição de mensagem de alerta caso seja passada a tarja de um cartão com chip.
+- Correção fechamento de pinpad em caso de falha de comunicação com o mesmo.
+- Atualização para funcionamento da PGWebLib com terminais de PIN Embarcado (N910, GPOS700).
+
+>>> Módulo Android <<<
+- Melhoria na geração de arquivo compactado de log.
+- Melhorias no gerenciamento de permissão USB: caso o pinpad seja desconectado e conectado
+novamente a permissão é pedida automaticamente.
+
+ v4.0.80.2 -  05/06/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Corrigido o desfazimento manual.
+- Melhoria no alinhamento de mensagens.
+- Corrigido recebimento do tipo de financiamento da automação.
+- Corrigida a passagem do provedor para o cancelamento de venda.
+- Melhoria no tempo de exibição de mensagens de notificação.
+
+*** PGWebLib (v4.0.80.4) ***
+>>> PGWebLib
+- Correção estabelecimento de conexão para execução de confirmação e desfazimento.
+
+>>> Módulo Android <<<
+- Não houve mudanças neste módulo.
+
+ v4.0.82.0 -  06/06/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Não houve mudanças neste módulo.
+
+*** PGWebLib (v4.0.82.0) ***
+>>> PGWebLib
+- CA19-0067: Correção [SAC 2019041810000031]: Corrigido problema que fazia com que a carga de tabelas
+             do PIN-pad fosse realizada de forma incorreta caso ocorresse uma atualização de parâmetros
+             em uma transação que o autorizador foi selecionado num ponto de captura que utiliza
+             roteamento de bandeiras. Isso gerava um erro de modo inválido sempre que uma transação
+             fosse realizada.
+             Correção (interna): XML não estava sendo apagado da memória do terminal após uma
+             manutenção. Essa inconsistência fazia com que o terminal conseguisse continuar realizando
+             operações mesmo após a manutenção.
+             Correção interna: Pay&Go estava parando de funcionar após uma atualização de parâmetros
+             por conta da leitura do XML.
+- CA19-0068: Correção (interna): Conforme a captura de dado a ser solicitada no PdC, passa a exibir
+             mensagens mais específicas conforme a validação do dados. Por exemplo, de data será
+             "Data inválida", caso a validação falhe.
+- CA19-0071: Correção (interna): De forma errada, a biblioteca estava apagando o conteúdo de certas
+             mensagens de comunicação durante o processamento do envio de uma advice. Isso ocorria
+             quando havia falha nesse processamento, fazendo com que o conteúdo da mensagem principal
+             fosse perdido, gerando "Erro de comunicação (mensagem inválida)".
+- CA19-0073: Correção (interna): Alterado o tempo de espera até que o terminal consiga registrar na
+             rede GPRS/WIFI. Caso fosse alterado a comunicação, era retornado um erro de registro
+             devido ao curto intervalo de timeout.
+- CA19-0074: Correção [SAC 2019041010000018]: Passa a efetuar corretamente a reabertura de conexão
+             com o PIN-pad caso ocorra alguma falha de conexão. A conexão não era fechada corretamente,
+             fazendo que o PIN-pad ABECS utilizasse comandos da biblioteca antiga.
+
+>>> Módulo Android <<<
+- Não houve mudanças neste módulo.
+
+ v4.0.82.1 -  12/07/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Correção exibição de mensagens de alerta múltiplas vezes no caso de campos preenchidos indevidamente
+ou não preenchidos.
+- Correção entrada digitada após clicar em cancelar uma venda em curso na tela de leitura do cartão.
+- Melhorias na formatação das mensagens exibidas.
+- Correção duplicidade de mensagens.
+- Correção cor da tela de leitura de cartão no caso de interface alternativa.
+- Envia por e-mail ambos os logs de PIN-Pad e o da aplicação (antes perguntava qual dos dois enviar,
+mas enviava os dois).
+
+*** PGWebLib (v4.0.82.1) ***
+>>> PGWebLib
+- Correção na exibição da mensagem de cartão com chip (caso seja passado como tarja).
+- Correção confirmação manual.
+
+>>> Módulo Android <<<
+- Mudança na geração de logs: permite salvar o log de PIN-Pad e o da aplicação simultaneamente.
+
+v4.0.85.0 -  19/07/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Não houve mudanças neste módulo.
+
+*** PGWebLib (v4.0.85.0) ***
+>>> PGWebLib
+- CA19-0088: Correção (interna): Foi alterado a forma com que se determina qual animação a ser
+             exibida nas pontas que suportam (apenas S920 no momento). Essa alteração afeta todas as
+             mensagens que exibem animação no display.
+
+- CA19-0086: Correção (interna): Correção para que transações de resgate de prêmio do módulo Cielo
+             do Muxx funcione corretamente, antes estava sendo retornado erro PIN-pad.
+
+- CA19-0090: Nova funcionalidade: Caso o roteamento de bandeiras esteja ativo e o PdC esteja
+             utilizando PIN-pad iPP320, haverá uma sinalização para que as tabelas do PIN-pad sejam
+             limpas caso ocorra uma atualização de parâmetro ou instalação.
+
+- CA19-0090: Correção (interna): Ajusta o tratamento de limpeza para PIN-pad ingenico, caso a
+             automação informasse o autorizador após uma atualização de parâmetros, era retornado
+             erro pinpad na primeira transação.
+
+- CA19-0094: Correção (interna): Caso ocorresse uma falha de comunicação durante o envio de uma
+             advice, era gerada a mensagem "Erro de comunicação, mensagem inválida" na tentativa de
+             envio da próxima transação.
+
+- CA19-0093: Nova funcionalidade: Passa a ser possível a automação informar a capacidade de tratar a
+             remoção do cartão do PIN-pad por conta própria, fazendo com que a biblioteca finalize a
+             transação e mantenha o cartão inserido.
+             Nova funcionalidade: Passa a ser possível monitorar a remoção de um cartão do PIN-pad
+             através de PW_iPPWaitEvent, tornando possível que a automação trate a remoção do cartão
+             no final da transação por conta própria.
+
+- CA19-0097: Nova funcionalidade: Devido a nova especificação da FirstData, foi necessário adicionar
+             novas informações relacionadas as aplicações a serem utilizadas no PIN-pad (AID). Para
+             suporte de tal informações, é necessário o uso de um PIN-pad ABECS com especificação
+             2.10 ou superior.
+
+- CA19-0093: Correção (interna): Passa a ser possível obter o tipo de cartão logo após o uso do
+             mesmo, anteriormente esse valor só era disponibilizado após a finalização da transação.
+
+- CA19-0093: Correção (interna): Caso uma transação não necessite de confirmação, passa a fechar o
+             PIN-pad.
+
+- CA19-0099: Nova funcionalidade: Passa a ser possível efetuar transações com o tipo de financiamento
+             crediário.
+
+- CA19-0100: Nova funcionalidade: Suporte para o novo fluxo de verificação mobile ao realizar uma
+             transação CTLS. Caso seja iniciada a transação sem que o portado seja verificado
+             (Solicitada a senha ou digital no dispositivo móvel), a aplicação sinalizará a
+             necessidade de verificação.
+             Correção (interna): Caso ocorresse o fallback de CTLS para CHIP, em PIN-pad ABECS, a
+             antena não estava sendo desligada.
+             Nova funcionalidade: Passa a obter as versões do kernel CTLS Discovery e PURE. As
+             informações serão enviadas ao Muxx.
+
+- CA19-0107: Correção (interna): Corrigido o dado referente a cartões alelo auto retornado para o
+             Muxx. A informação era devolvida de forma errada, fazendo com que o Muxx não solicitasse
+             as mensagens de frota do produto.
+
+- CA19-0114: Correção (interna): Corrigido tratamento de mensagens que fazia com que algumas mensagens
+             exibidas na tela ficassem com alinhamento incorreto.
+
+- CA19-0115: Correção (interna): Não estava exibindo a mensagem PIN-pad durante uma transação com
+             QR Code (Keep Alive). Somente estava acatando a primeira mensagem recebida na instalação.
+
+- CA19-0116: Nova funcionalidade: Passa a ser possível solicitar a captura do valor de entrada de um
+             pagamento parcelado de forma local para qualquer produto que o servidor necessite.
+
+- CA19-0117: Correção (interna): A biblioteca não realizará mais travas caso a automação passe somente
+             um campo relacionado ao pagamento de QR Code.
+
+- CA19-0120: Correção(interna): A tela de captura de valor, quando a mesma era apresentada junto com
+             as informações do estabelecimento, estava desalinhada.
+
+- CA19-0123: Nova Funcionalidade: Foi acrescentado na lib a tag PWINFO_TRNORIGLOCREF (referência
+             local da transação original).
+
+- CA19-0127: Nova funcionalidade: Agora passa a ser possível para a automação consultar qual foi o
+             status do processamento de cartão com chip por meio da tag PWINFO_EMVRESPCODE.
+
+>>> Módulo Android <<<
+- Não houve alterações nesse módulo.
+
+v4.0.85.1 -  29/07/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Não houve mudanças neste módulo.
+
+*** PGWebLib (v4.0.85.1) ***
+>>> PGWebLib
+- Na realização de um cancelamento, ao inserir todos os parâmetros necessários para a sua realização,
+os parâmetros não solicitados eram ignorados. Esse comportamento fazia com que a lib solicitasse
+novamente dados já informados. Esta versão contempla a correção desse erro.
+
+>>> Módulo Android <<<
+- Não houve alterações nesse módulo.
+
+v4.0.85.2 -  12/08/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO ***
+- Correção do tratamento para valor monetário com tamanho máximo acima do permitido.
+- Correção de exibição de menu com grande número de itens (não estava exibindo o último item).
+- Correção do tratamento para máscaras com hífen. Exemplo: placa de veículo (@@@-@@@@).
+
+*** PGWebLib (v4.0.85.4) ***
+>>> PGWebLib
+- Correção: estava ocorrendo travamento na exibição de mensagens durante a configuração do ponto de
+captura.
+- Correção: confirmação não estava subindo após a venda, devido à falha na conexão.
+- Confirmação passa a ser executada em segundo plano.
+
+>>> Módulo Android <<<
+- Não houve alterações nesse módulo.
+
+
+v4.0.89.0 -  14/10/2019     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção na inserção da placa do veículo: ao inserir um número maior de dígitos do que o permitido,
+o primeiro dígito era apagado.
+- Redução do tempo de exibição das mensagens de display para melhor sincronização.
+- Implementação do comprovante gráfico no Cliente.
+- Correção do travamento do Cliente que ocorria aleatoriamente ao encerá-lo durante uma transação.
+- Corrigido: Para o Android 9.0 ou superior, não estava sendo exibido o label das teclas no teclado.
+- Passa a verificar (e solicitar) a permissão para leitura de pastas externas.
+    - Esta funcionalidade é tipicamente utilizada para manipulação do logo personalizado. Caso não
+    tenha permissão, será exibido o logo padrão, ao invés de nenhum (como anteriormente).
+- Melhorias no processo de inicialização do cliente, para exibição correta das mensagens e,
+caso a automação opere com a Personalização ativada, não será mais exibida a tela azul original da
+personalização ocorrer.
+
+*** PGWebLib (v4.0.89.0) ***
+>>> Ver documento PGWebLib_Android.txt para o histórico completo.
+
+v4.0.91.0 - 23/dez/2019     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualização para a versão 29 do sdk.
+- Alteração do logo e nome do aplicativo.
+
+*** PGWebLib (v4.0.91.0) ***
+>>> PGWebLib
+- Correção erro de encoding com PIN-Pad PPC 930.
+
+- CA19-0197: Correção (SAC 2019100710000049): Melhoria na mensagem de erro retornada caso se efetue
+             um comando de criptografia (EBX) em um PIN-Pad não ABECS. Estava retornando "ERRO
+             PINPAD", e foi alterado para retornar "PINPAD INCOMPATIVEL". O cenário acontecia com a
+             Vero quando se efetuava uma troca de PIN-Pad ABECS para um não ABECS e não se efetuasse
+             uma transação de instalação.
+
+- CA19-0204: Nova funcionalidade: Adiciona à tag MUXTAG_ATTRIBUTETRANSACTION um novo atributo,
+             indicando se a transação foi realizada num terminal configurado como autoatendimento.
+
+- CA19-0205: Correção (interna): Corrige erro durante o carregamento do QRCode que fazia o mesmo ser
+             salvo com um nome inválido. Esse erro impedia que duas redes utilizando QR Code
+             funcionassem no mesmo ponto e fazia o POS não conseguir exibir o QRCode após ser
+             reiniciado durante uma transação.
+
+- CA19-0206: Correção (interna): Melhoria no detalhamento de erros relacionados ao QR Code.
+
+- CA19-0207: Nova funcionalidade: Passa a registrar, em caso do erro "PROBLEMA ARQUIVO DE PARAMETROS",
+             o campo do arquivo de instalação (XML) que está ausente ou inconsistente.
+
+- CA19-0208: Nova funcionalidade: Passa a informar ao Muxx, por meio do atributo da transação, se
+             houve a impressão do comprovante gráfico, tanto para a via lojista, quanto para a via
+             estabelecimento.
+
+- CA19-0209: Correção (interna): Correção na captura de dados dinâmica, uma das funções estava com
+             uma entrada errada de variável o que acarretava erro na transação. O cenário acontecia
+             com a Vero ao tentar se efetuar uma transação de recarga.
+
+- CA19-0210: Correção (interna): Passa a verificar se o QR Code a ser exibido já está exibido no
+             Display do PIN-Pad. Isso resulta em uma exibição limpa do QR Code no display do PIN-pad.
+             O problema acontecia quando o QR Code era exibido no PIN-pad, que piscava de tempos em
+             tempos.
+
+- CA19-0212: Correção (interna): Caso a aplicação informasse uma lista específica de aplicações do
+             cartão para seleção, estava sendo retornado modo inválido. O problema ocorria ao tentar
+             realizar um saque no C6 utilizando roteamento de bandeiras.
+             Correção (interna): No roteamento de bandeiras, caso o cenário fosse passível de
+             fallback, era retornado erro PIN-pad devido a uma falha de conversão nos comandos ABECS.
+             Correção (interna): Em determinados comandos ABECS, a aplicação não estava validando
+             corretamente o retono do PIN-pad. O erro foi evidenciado quando a aplicação tentava
+             exibir um QR Code excluido manualmente no PIN-pad.
+
+- CA19-0213: Correção (interna): Anteriormente, a aplicação estava solicitando confirmação de dados
+             no PIN-pad mesmo que a captura inicial não tivesse sido realizada com sucesso. Agora
+             passa a somente solicitar essa confirmação em caso de sucesso na captura inicial. Passa
+             a realizar a confirmação de dados apenas para PIN-pad não ABECS.
+
+- CA19-0216: Nova funcionalidade: Passa a tratar o parâmetro adicionado para a tag PWINFO_SMSPHONE,
+             removendo os caracteres não numéricos dela antes de subir ao servidor. Isso permite que
+             a entrada: "(11) 99123-4567" seja convertida no valor "11991234567".
+
+- CA19-0218: Correção (interna): Caso a automação informe uma modalidade de pagamento que não exista
+             nos autorizadores, estava sendo realizada a comunicação com o Muxx sem informar o
+             estabelecimento.
+
+- CA19-0220: Correção (interna): Em PIN-pads gertec PPC920 com versão inferior a 1.09, existe uma
+             limitação para o número de AIDs contactless que podem ser carregados no terminal. Caso
+             esse limite seja excedido, o terminal retorna erro interno para as chamadas de GetCard.
+             Agora a aplicação passa a zerar as tabelas no terminal caso uma chamada de GetCard
+             retorne erro interno.
+
+>>> Módulo Android <<<
+- Implementada a extração automática de logs.
+- Atualização para a versão 29 do sdk.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.63
+      * kernel: 3.10.49 / build: V2.3.04
+      * PPComp Newland: v1.12
+
+v4.0.91.1 - 27/jan/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Não houve alteração neste módulo.
+
+*** PGWebLib (v4.0.91.2) ***
+>>> PGWebLib
+- Implementado artifício paliativo para problemas de travamento quando integrado com PIN-Pad USB:
+no comando RemoveCard, passa a fazer o envio a cada 10s, por um tempo total de 2min.
+Passado este tempo, o comando retorna OK.
+
+>>> Módulo Android <<<
+- Melhorias nos logs de comunicação entre a biblioteca e o PIN-Pad USB.
+- Alterado o endereço de envio de logs do elastic search.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.63
+      * kernel: 3.10.49 / build: V2.3.04
+
+      * PPComp Newland: v1.12
+
+v4.0.91.2 - 21/fev/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção envio logo alternativo e mudança da aba a ser exibida ao abrir o cliente.
+
+*** PGWebLib (v4.0.91.2) ***
+>>> PGWebLib
+- Não houve alterações nesse módulo.
+
+>>> Módulo Android <<<
+- Não houve alterações nesse módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.63
+      * kernel: 3.10.49 / build: V2.3.04
+
+      * PPComp Newland: v1.12
+
+v4.0.91.3 - 03/abr/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Novo menu administrativo: passa a exibir as operações administrativas
+  antes da seleção do provedor, a menos que este seja marcado como
+  preferencial.
+- Implementada funcionalidade de teste de chaves.
+
+*** PGWebLib (v4.0.91.7) ***
+>>> PGWebLib
+- Corrigido: em caso de transação digitada e PIN-Pad ABECS, se fosse necessária
+  uma criptografia de dados com chave DUKPT 3DES, ocorria ERRO PINPAD pois o mesmo
+  era fechado.
+- Corrigido: para cancelamento Contactless, não estava sendo ligada a antena.
+- Para PP Abecs, passa a subir também informações da Aplicação 2.
+
+>>> Módulo Android <<<
+- Ajuste na funcionalidade de iniciar transação ao inserir cartão para identificar a remoção
+do mesmo.
+- Reestruturação do POS-Plug para trabalhar com módulos.
+- Passa a não invocar o callback onDisplay de PinPadListener para terminais embarcados.
+- Para terminais embarcados, se estes seguirem a norma ABECS, passa a não utilizar mais
+  comunicação segura.
+- Corrigida a formatação das Tags Binárias no Log de PIN-Pad ABECS.
+- Adicionadas as funções de extração manual e automática de logs.
+- Corrigido: comprovante gráfico muito grande causava crash na aplicação.
+- Implementada função de teste de chaves de criptografia.
+- Função getOperations passa a retornar também o autorizador e uma flag indicando se
+  este é preferencial.
+- Ajuste para tratar mensagens com caracteres fora da faixa ASCII.
+- Corrigido: a função de conversão de encoding UTF para ASCII podia causar
+erro dependendo da plataforma.
+- Passa a carregar o módulo RSA no boot da lib, evitando problemas de ClassNotFound
+em runtime.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.63
+      * kernel: 3.10.49 / build: V2.3.04
+
+      * PPComp Newland: v1.12
+
+v4.0.91.4 - 17/abr/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Corrigido: quando solicitada confirmação positiva, o aplicativo
+crashava devido ao fato deste tipo de captura não constar na classe TipoCaptura.
+- Criado tipo de captura "desconhecido" para tratar tipos de capturas que não
+estejam na classe TipoCaptura, evitando a situação acima.
+
+*** PGWebLib (v4.0.91.7) ***
+>>> PGWebLib
+- Não houve alterações nesse módulo.
+
+>>> Módulo Android <<<
+- Não houve alterações nesse módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+v4.0.91.5 - 23/abr/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Corrigido: Erro de permissão no Android 10 para gerar ou obter os arquivos de log.
+
+*** PGWebLib (v4.0.91.7) ***
+>>> PGWebLib
+- Não houve alterações nesse módulo.
+
+>>> Módulo Android <<<
+- Não houve alterações nesse módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+v4.0.91.6 - 02/jun/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção confirmação/desfazimento manual.
+
+*** PGWebLib (v4.0.91.10) ***
+>>> PGWebLib
+- Não houve alterações nesse módulo.
+
+>>> Módulo Android <<<
+- Incluído bloqueio de nova transação, caso seja chamado newTransac com uma transação em curso.
+- Melhoria nos logs da camada de comunicação e na geração do comprovante gráfico.
+- Passa a tratar os certificados em cadeia na pasta assets.
+- Correção na identificação do cliType.
+- Adição ao log comms do cliType, device e package name.
+- Corrigido: para alguns casos, os logs estavam sendo extraídos com o número do pdc incorreto.
+- Corrigido: o reagendamento automático de envio de logs não funcionava em algumas situações.
+- Melhorias de logs nas camadas de comunicação.
+- Corrigido tratamento dos certificados em cadeia: se um dos certificados estivesse inválido/vencido,
+  a cadeia inteira era ignorada, dando erro SSL em qualquer situação.
+- Passa a compactar os logs no internal storage (issue Android 10).
+- Corrigido tratamento dos status de conexão, onde em alguns casos eles eram indevidamente resetados
+  no meio de uma conexão, causando travamento do pdc.
+- Incluído suporte à ABI's x86 e x86-64 para uso com emulador.
+- Incluído suporte a conexão TCP/IP com PIN-Pad, para uso com emulador.
+- Corrigido: para transação digitada, estava sendo incorretamente assumida a presença de um PIN-Pad.
+- Corrigido (IMPORTANTE): para PIN-Pads e POS com especificação 1.08, os dados de cartão estavam
+  sendo armazenados no log ppsers em aberto, falha grave de segurança.
+- Corrigido: caso a mensagem a ser logada fosse maior que o buffer de log, a lib crashava. Feito
+  ajuste para truncar o log em tal cenário.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+v4.0.91.7 - 06/jul/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção na exibição do dispositivo bluetooth pareado.
+
+*** PGWebLib (v4.0.91.13) ***
+>>> PGWebLib
+- Correção (IMPORTANTE): Para transações digitadas ou de tarja, dados sensíveis (PAN, CVV e Data
+  de Vencimento) estavam sendo logados em aberto.
+- Ajuste devido a certificação Cielo, para notificar a ocorrência de mensagem prévia antes de uma
+  captura de cartão.
+- Corrigido: devido ao mascaramento de dados sensíveis, a lib poderia crashar se a aplicação passasse
+  uma informação muito grande via PW_iAddParam.
+
+>>> Módulo Android <<<
+- Alterada a chamada da extração manual de logs, para não precisar receber o contexto.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.25
+
+    > N910
+    * bcnewland: v1.77
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.24
+
+v4.0.91.8 - 17/jul/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção para o correto funcionamento de mouse USB.
+- Correção crash cancelamento caso a data/hora da transação original seja nula.
+
+*** PGWebLib (v4.0.91.14) ***
+>>> PGWebLib
+- Correção para mascarar a tag PP_PINBLK no log do PIN-Pad ABECS.
+
+>>> Módulo Android <<<
+- Tratamento para casos em que há mais de um dispositivo USB conectado.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.25
+
+    > N910
+    * bcnewland: v1.77
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.24
+
+v4.0.91.9 - 29/jul/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção para exibir multiplas mensagens lojista.
+- Atualizada lib BC Newland com a remoção do suporte ao processamento
+  dos cartões PayPass Magstripe.
+
+*** PGWebLib (v4.0.91.15) ***
+>>> Módulo PGWebLib (v4.0.91) <<<
+- Corrigido: para o caso em que uma criptografia era solicitada 2x com o mesmo dado de entrada no
+modo MK/WK, o retorno da criptografia na segunda vez era incorreto.
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.26
+
+    > N910
+    * bcnewland: v1.83
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.24
+
+
+v4.0.91.10 - 11/set/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Corrigido: Validação do campo HODOMETRO, onde estava sendo exibido mensagem incorreta
+ao exceder o limite de caracteres permitidos para o campo.
+- Corrigido: Permitir cancelar a operação na tela de inserir o cartão quando o teclado para digitar
+o número do cartão não estiver sendo exibido (GPOS e N910)
+
+
+*** PGWebLib (v4.0.91.16) ***
+>>> Módulo PGWebLib (v4.0.91) <<<
+- Corrigido: para o caso em que o terminal retornava o código 20 (Tabelas Expiradas) e ao fazer
+uma chamada ao comando GetCard novamente ocasionava um erro de chamada inválida (-2110)
+
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.26
+
+    > N910
+    * bcnewland: v1.83
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.24
+
+
+v4.0.91.11 - 17/set/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualizada lib BC Newland com correção no retorno do parametro GOC_PINOFF
+
+
+*** PGWebLib (v4.0.91.16) ***
+>>> Módulo PGWebLib (v4.0.91) <<<
+- Não houve alterações neste módulo
+
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.26
+
+    > N910
+    * bcnewland: v1.84
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.24
+
+v4.0.103.0 - 29/jun/2020     (Interface Automação: v2.0.0.4)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção sobreposição de texto dos cards do consultar transações.
+- Correção do erro "Biblioteca não inicializada" em consultar transações.
+- Correção parcelado emissor com parcelas com valores diferentes.
+- Correção entrada digitada.
+- Melhoria logs: adição da opção de fazer upload dos logs.
+- Correção comportamento botão home.
+- Nova identidade visual PayGo.
+- Configuração do Firebase Crashlytics.
+- Correção na exibição do dispositivo bluetooth pareado.
+
+*** PGWebLib (v4.0.103.0) ***
+>>> PGWebLib
+- CA19-0225: Correção (interna): Corrigido códigos de retorno da camada de tradução de QRCode. Anteriormente, num cenário de troca de
+             PIN-pad de um que suporta QR-Code para um que não suporta, um erro estava sendo retornado para a aplicação cancelando,
+             incorretamente, o fluxo da transação corrente.
+
+- CA19-0227: Correção (interna): Anteriomente, caso, na camada de conexão, alguma função retornasse erros fora do intervalo de erros da lib,
+             esse erro era repassado para a automação, junto com uma descrição pouco descritiva, e.g., "ERRO -5". Agora, passa a retornar
+             um código de erro padrão e uma mensagem informando o código do erro original e uma mensagem informando ser um erro de comunicação.
+
+- CA19-0228: Nova funcionalidade: Passa a fazer backup dos arquivos de configuração, passando a  realizar a leitura desses em
+             caso de falha ao acesso dos arquivos principais.
+
+- CA19-0229: Nova funcionalidade: Todos os pontos de captura passam a enviar as informações para estatísticas,
+             sendo que os tempos T1, T2, T3 e T4 são enviados de forma automática e o tempo T5 e os tempos de
+             registro na rede e o número de tentativas de conexão dependem do tipo de ponto de captura.
+
+- CA19-0230: Correção (interna): Passa a traduzir o erro da camada XPLG de NO_KEY para PINPADERR evitando que o código -406 seja enviado ao MUXX
+				 sem mensagem de resultado. Este problema ocasionava na mensagem padrão de "ERRO NO CLIENTE" no histórico da transação.
+
+- CA19-0232: Nova funcionalidade: O servidor poderá sinalizar se a senha deve ser solicitada ou não mesmo se o SC solicitar para transações via tarja magnética.
+
+- CA19-0235: Correção (interna): Correção na exibição do QR Code no PIN-pad/ POS. O nome da imagem de QR Code estava sendo gerada em formato errado, fazendo
+			    com que a aplicação reiniciasse.
+
+- CA19-0237: Correção (interna): Correção dos valores de endereço destino enviados ao Muxx.
+
+- CA20-0002: Correção (SAC 2019122710000016): Corrigido o tamanho do buffer para impressão de comprovantes. Ocorria erro caso o comprovante passasse o tamanho de
+				 11.400 caracteres. O erro acontecia na impressão de um relatório detalhado por ultrapassar o tamanho.
+
+- CA20-0004: Nova funcionalidade: Passa a suportar novas aplicações Mastercard Credit e Debit (AID Estendidos).
+             Correção (interna): Ajustado o tratamento da leitura do cartão (Getcard) caso a aplicação informasse uma lista específica de aplicações
+				 o problema poderia travar a biblioteca.
+
+- CA20-0005: Nova funcionalidade: Passa a informar, no campo atributo da transação, se o cliente suporta a exibição de QR Code.
+
+- CA20-0011: Nova funcionalidade: Quando disponível, passa a exibir o código de retorno junto com a mensagem de "ERRO PINPAD" para facilitar a depuração desse tipo de problema.
+
+- CA20-0013: Correção (Interna): Passa a validar o tamanho do buffer de comunicação antes de excluir qualquer tipo de informação.
+             O erro acontecia quando houvesse uma atualização de versão ou confirmação, a biblioteca travava.
+
+- CA20-0014: Correção (Interna): Altera comando StartGetCard para correto tratamento de cartão sem contactless na implementação
+             de AID estendido.
+
+- CA20-0016: Correção(interna): Correção onde o tipo de cartão não era solicitado no roteamento caso a transação fosse feita por contactless.
+
+- CA20-0017: Correção (interna): Corrigido erro na camada de QRCode que impedia que fosse exibido QRCode carregado na mensagem de "keep-alive".
+             Isso impedia que fossem realizadas transações com o módulo AME.
+
+- CA20-0021: Correção (Interna): Passa a atualizar a mensagem adicional durante a exibição do QR Code no POS. Antes somente a imagem do POS
+             era exiba, porém o texto não era alterado.
+
+- CA20-0023: Nova funcionalidade: Passa a exibir, ao final da instalação, a lista de autorizadores incompatíveis com o terminal instalado, levando em conta a tabela
+             de criptografia presente no XML de instalação e as chaves presentes no terminal.
+
+- CA20-0028: Correção (Interna): Passa a zerar o valor de algumas estruturas de controle durante a manutenção. Isso é necessário pois,
+             em alguns cenários, após a manutenção, o terminal ficava inoperante, sendo necessário reiniciar a biblioteca.
+
+- CA20-0033: Nova funcionalidade: Caso o servidor sinalize o suporte do novo modo de entrada do cartão (Fallback de contactless
+             para contato), o PdC de captura irá sinalizar se a transação foi originada de um fallback sem contato.
+
+- CA20-0036: Correção (interna): Corrigido como as trilhas do cartão eram recuperadas do PIN-pad (CheckEvent). O problema fazia com que
+             transações de tarja não fossem processadas corretamente, retornando cartão não aceito.
+             Correção (interna): Corrigido a solicitação do tipo de cartão caso a inicialização possuísse aplicações sem contato. O problema
+             ocorria quando a primeira carga de tabelas não possuia aplicações CTLS, a aplicação entendia que não haveria mais candidatas nos
+             próximos autorizadores.
+             Correção (interna): Corrigido carga de CAPK's. O tamanho estava limitado em 90, podendo ocorrer uma possível invasão de memória.
+
+- CA20-0037: Correção (interna): Removida a trava PWINFO_CTLSCAPTURE, somente se a automação informasse que o menu de tipo de
+             cartão (CTLS) era exibido.
+
+- CA20-0039: Correção (Interna): A função que verificava se o caminho informado no PW_Init era válido não estava funcionando. Antes, caso fosse informado algum caminho
+             inválido, a biblioteca não estava validando e retornava OK na inicialização.
+
+             Correção (Interna): Correção na geração de logs comms. O problema ocorria quando era informado alguma caminho inválido na primeira execução do comando
+             PW_Init.
+
+- CA20-0041: Correção (interna): Passa a aceitar transações CTLS sem valor definido. Caso isso ocorra, será considerado o valor zerado, e será de responsabilidade do
+             PIN-pad nega a transação caso a aplicação selecionada não suporte tal característica.
+
+- CA20-0042: Nova Funcionalidade: A mensagem para os erros PWRET_TLVERR, PWRET_SRVINVPARAM e PWRET_REQPARAM foi alterada para detalhar melhor qual foi o erro que ocorreu,
+             e quando presente, vai enviar também em qual Tag que ocorreu o problema em questão.
+
+- CA20-0046: Correção (interna): Passa a habilitar a antena contacless mesmo que o valor da transação não tenha sido definido, além disso, o menu de
+             solicitação de tipo de cartão não estava funcionando corretamente quando era realizado um cancelamento sem a validação local do valor
+             total da transação.
+
+- CA20-0047: Nova funcionalidade: Criada a função PW_iWaitConfirmation para que seja possível esperar com que o processo de confirmação seja finalizado.
+            Essa função existe para que, caso uma automação realize a chamada de PW_iConfirmation em uma thread dedicada, essa thread seja
+            finalizada apenas quando o processo de confirmação já tenha terminado.
+
+- CA20-0050: Nova Funcionalidade: Acrescentado mensagens de retorno caso ocorram os erros de "Modo de Entrada de Cartão Inválida" (PWRET_NOCARDENTMODE)
+             e de "Erro de Protocolo" (PWRET_PROTERR).
+
+- CA20-0052: Nova funcionalidade: Passa a exibir mensagem de progresso parcial para o teste de chaves, informando qual a chave (ínidice e rede) está sendo capturada à automação.
+
+- CA20-0054: Nova funcionalidade: Passa a realizar o teste de chaves de forma configurável. As informações referentes ao teste de chaves estão no arquivo "TSTKEY.ini" presente na pasta
+             data da biblioteca. Caso esse arquivo não esteja presente, a biblioteca gera um arquivo com configurações padrão.
+
+- CA20-0055: Nova funcionalidade: Passa a retornar para a automação os nomes das redes adquirentes configurados no teste de chave por meio das tags
+             PWINFO_PINDUKPT3DESNAME, PWINFO_PINMK3DESNAME, PWINFO_PINMKDESNAME, PWINFO_DATADUKPT3DESNAME, PWINFO_DATAMK3DESNAME, PWINFO_DATAMKDESNAME.
+
+- CA20-0057: Correção (interna): Correção (Interna): Passa a retorna o índice da rede adquirente utilizando quando efetuada uma aproximação de um cartão contactless
+                                 simulando tarja. O problema afetava tratamentos internos da biblioteca quando o cartão lido era deste tipo, o cenário foi identificado
+                                 quando esse tipo de transação deveria ser bloqueado na PagSeguro.
+
+- CA20-0058: Correção (Interna): Correção no tratamento de PIN-Pad para os terminais Gertec. Caso estivesse habilitado com AID estendido, a aplicação não estava
+             efetuando os outros tratamentos caso necessário ao modelo do PIN-Pad.
+
+- CA20-0059: Correção (interna): Correção no tratamento de PIN-pad que mapeia os índices superiores a 10 na posição 4. Esse tratamento deveria ser executado apenas
+             para terminais ingênico não ABECS e estava sendo executado para os ABECS também. Isso gerava uma série de cargas de tabelas desnecessárias ao se transacionar
+             com redes adquirentes diferentes quando operando sem roteamento.
+
+- CA20-0060: Correção (interna): Anteriormente, de forma errada, todos os erros de contactless estavam sendo convertidos para cartão inválido, ou seja, mesmo que o erro
+             fosse, por exemplo, de aproximação dupla de um cartão, ele não estava sendo refletido corretamente para a camada da PGWebLib.
+
+- CA20-0061: Correção (interna): No caso de um PIN-pad ABECS, passa a simular o envio das informações da aplicação de PIN-pad REDE
+				 (índice 02) para o servidor Muxx, o não envio dessas informações impossibilitaria a realização de transações pelo
+				 sistema de autorização REDE.
+
+- CA20-0062: Correção (interna): Quando for realizado uma operação do tipo PWOPER_ADMIN, o menu a ser devolvido para a automação deve
+				 ficar similar ao do POS que é montado pelo GetOperationEx.
+
+- CA20-0064: Nova funcionalidade: Passa a montar integralmente o comprovante dos dados do terminal dentro da PGWebLib.
+
+- CA20-0065: Correção (interna): Adequa algumas mensagens de PIN-pad ao formato 2x16. Mensagens em formato inadequado poderiam ocasionar erros ao enviar comandos para o PIN-pad, por exemplo, anteriormente,
+             ao se tentar exibir a mensagem "  MODO INVALIDO     USE CHIP ", o PIN-pad PPC-920 travava devido a ausência dos últimos três caracteres.
+
+- CA20-0067: Correção (interna): Passa a abortar comando de PIN-pad antes de iniciar a captura de cartão na camada de tratamento de PIN-pad. Sem essa chamada, algumas plataformas poderiam retornar erro por
+             chamada inválida, caso um comando anterior não tivesse terminado. Isso ficava evidente no POS, em caso de captura de cartão em uma rede que não permite captura digitada, ao digitar uma tecla,
+             retornava cancelava a transação.
+
+- CA20-0069: Nova Funcionalidade: Passa a ser possível obter através da função PW_iGetResult a informação referenta à tag (PWINFO_AUTHPOSQRCODE - 0x1F77) quando
+             a informação referente a ela estiver presente na transação.
+
+- CA20-0070: Passa a corretamente liberar toda a memoria alocada na geração do QR Code, anteriormente parte da memória era mantida, o que poderia ocasionar no travamento do terminal após algumas cargas de novas imagens.
+
+- CA20-0071: Correção (Interna): Ajuste na liberação de memória quando carregado a tabela se utilizando roteamento de bandeiras. Estava ocorrendo erro em algumas transações contactless, fazendo com que a aplicação encerrasse abruptamente.
+
+- CA20-0073: Correção (interna): Passa a suportar corretamente o atributo do teste de chaves, que permite a geração de comprovante sem cabeçalho ou sem o nome
+             das redes adquirentes. Essa funcionalidade é ativa por meio da chave TSTKEY_ATR no arquivo TSTKEY.ini.
+
+- CA20-0075: Correção (interna): Anteriormente, para as operações de teste de chaves e dados do terminal, caso houvesse advice pendente, o mesmo era enviado ao final dessa operação. Como essas operações são locais, elas não deveriam iniciar
+             uma conexão com o servidor.
+
+- CA20-0077: Correção (interna): Alinhadas mensagens de equipamento incompatível com rede adquirente. Anteriormente, parte da mensagem não estava sendo corretamente exibida por existir uma quebra de linha a mais.
+
+- CA20-0079: Correção (interna): Ampliação do número máximo de tabelas suportadas no processamento local e ampliação do tamanho máximo permitido
+				 para o arquivo de parâmetros, com o intuito de permitir que um ponto de captura consiga trabalhar com mais de uma rede sub-adquirente
+				 associada.
+
+- CA20-0081: Correção (interna): Corrige problema em que tratamentos para PIN-pad não ABECS estavam sendo selecionados para terminais ABECS (iPP320).
+
+- CA20-0083: Correção (interna):Correção (interna): Caso a inicialização possuísse uma grande quantidade de faixas de cartões para os produtos, o ponto
+             de captura poderia gerar a mensagem "Não existem produtos compatíveis" devido a uma seleção errada realizada internamente na biblioteca. O problema
+             foi detectado em um teste com a REDE subadquirência (arquitetura nova) com roteamento de bandeiras.
+
+- CA20-0084: Nova funcionalidade: Passa a realizar o processamento local descrito nas operações recebidas dentro nó "ADMINISTRATIVO" genérico, filho do nó raiz.
+
+- CA20-0085: Nova funcionalidade: Implementação das tags PWINFO_RCPTADDINFOESTABCLI, PWINFO_RCPTADDINFOCLI e PWINFO_RCPTADDINFOESTAB.
+
+- CA20-0087: Correção (interna): Para transações digitadas, o número do cartão estava sendo registrado em aberto nos logs, passa a
+				 registrar somente os quatro primeiros dígitos. Em todo tipo de transação, passa a registrar o código de segurança e a
+				 data de vencimento mascarados.
+
+- CA20-0088: Correção (interna):  Ao cancelar uma transação pela automação (PW_iPPAbort), para que seja feita a captura do cartão de forma
+				 digitada durante uma carga de tabelas no PIN-pad, a transação falhava com a mensagem "PARAMETROS MANDATORIOS AUSENTES".
+
+- CA20-0090: Correção (interna): Corrigido a mensagem de PIN-pad para transações que solicitavam a troca de interface. A mensagem será
+             igualada a exibida no checkout "TRS. NAO ACEITA USE CHIP".
+
+- CA20-0092: Correção (interna):Caso a tag MUXTAG_KEYIDX seja enviada dentro da tag composta MUXTAG_CRYPTRESULTS, seu
+				 formato passa a ser byte e não BCD.
+
+- CA20-0094: Correção (interna): As definições de mensagem do dados do terminais foram migradas para dentro da PGWebLib.
+
+- CA20-0096: Correção (interna): Corrigido a mensagem caso ocorra o erro -2586 (PWRET_INVALIDVIRTMERCH - XML com erro).
+             A mensagem que irá aparecer é "Problema Arquivo de Parâmetros". A aplicação estava retornando apenas "Transação Cancelada".
+
+- CA20-0097: Correção (interna): Corrigida a apresentação da mensagem "EQUIPAMENTO NÃO COMPATIVEL COM ...", onde redes compatíveis
+             (AVR = 0) eram incorretamente classificadas como incompatíveis.
+
+- CA20-0106: Correção (interna): Correção nos parâmetros mobiles enviados ao terminal. Devido a implementação do AID estendido,
+             havia um erro em que as informações de inicialização mobile não eram repassadas corretamente na carga de tabela. Esse
+             problema foi pego durante a análise de alguns erros da certificação Safra (ABECS 2.12).
+
+- CA20-0108: Correção (interna): Passa a realizar até 3 chamadas de CheckEvent para detectar a presença de cartão no leitor e até três
+             chamadas de GetInfo para tentar selecionar o tratamento de PIN-pad. Essas correções foram necessárias pois, em alguns terminais,
+             a primeira chamada dos comandos não retornava PPCOMP_OK.
+             No caso do CheckEvent, o resultado seria a solicitação do tipo cartão com um cartão já inserido no leitor.
+             No caso do getinfo, poderia retornar erro de tratamento PIN-pad em algumas transações.
+
+- CA20-0114: Correção (interna): Alguns parâmetros da carga de tabelas, tais como Terminal Capabilities CTLS, Additional Terminal Capabilities CTLS e
+          Terminal Contactless Transaction Limit Mobile, caso estivessem ausentes, estavam sendo repassados ao PIN-pad zerados ao invés de assumir
+          outros valores conforme a especificação ABECS 2.12.
+
+- CA20-0115: Correção (interna): Passa poder realizar a troca de ambiente automática em todas as transações. Anteriormente, caso o servidor sinalizasse
+             a troca de ambiente em uma transação não financeira, como uma confirmação, a troca não era realizada e a operação era finalizada com erro.
+
+- CA20-0116: Correção (SD-5925): Quando o perfil de roteamento possuisse voucher ou frota, havia um erro na seleção que impossibilitava esse
+             tipo de transação, gerando o erro "Cartão não aceito".
+
+- CA20-0117: Nova funcionalidade: Cria nova capacidade do cliente para informar ao servidor que plataforma suporta AID estendido.
+
+- CA20-0119: Correção (interna): Durante os testes com a Cielo v2, perceberam que o terminal não estava apresentando a mensagem correta de "equipamento não compatível,
+             solicite a troca" quando não possuia a chave de criptografia.
+
+- CA20-0121: Correção (interna): Anteriormente, caso a informação correspondente a tag PWINFO_RCPTECVID não fosse recebida do Muxx, ela estava sendo populada com
+             "    OPERAC". Isto resultava na impressão incorreta do ECV_ID no comprovante gráfico.
+
+- Correção (IMPORTANTE): Para transações digitadas ou de tarja, dados sensíveis (PAN, CVV e Data
+  de Vencimento) estavam sendo logados em aberto.
+
+- Ajuste devido a certificação Cielo, para notificar a ocorrência de mensagem prévia antes de uma
+  captura de cartão.
+
+- Corrigido: devido ao mascaramento de dados sensíveis, a lib poderia crashar se a aplicação passasse
+  uma informação muito grande via PW_iAddParam.
+
+>>> Módulo Android <<<
+- Incluído suporte para modo "Serial TCP", para comunicação via TCP com protocolo serial.
+- Incluído suporte para ABI's x68 e x86-64, permitindo seu funcionamento em emuladores.
+- Reestruturação do módulo de comunicação:
+    - Passa a suportar múltiplos certificados SSL;
+    - Passa a logar as mensagens enviadas/recebidas do servidor.
+    - Melhorias gerais no tratamento dos status de conexão e gerenciamento das variáveis.
+- Corrigido: Quando habilitado o modo "Sem PIN-Pad", ocorria "ERRO PINPAD" ao capturar
+o número de cartão digitado, pois estava sendo incorretamente assumida a presença de PIN-Pad.
+- Habilitada funcionalidade para tratamento de AID Estendido.
+- Corrigido: quando PW_iExecTransac retornava mais de uma estrutura PW_GetData, era passada para
+a aplicação uma estrutura vazia.
+- Nova implementação: o callback PinpadInterfaceUsuario foi unificado com o PinpadListener. Com isso, eventos
+  relativos ao PIN (seja externo ou embarcado) passam a ser centralizados na mesma interface.
+    => Por compatibilidade, o callback PinpadInterfaceUsuario foi mantido em estado "deprecated", e deverá ser removido
+       em próximos releases.
+- Ajuste devido ao efeito colateral adicionado com a funcionalidade para tratar AID Estendido: como é necessário detectar
+  a tecnologia do cartão antes de tratá-lo, não estavam sendo emitidos os eventos de APROXIMA/INSIRA_CARTAO no callback
+  mensagemNotificacao, fazendo com que os tratamentos de tela e mensagens das aplicações neste estágio que se valiam deste
+  mecanismo não funcionassem adequadamente.
+- Corrigido tratamento da mensagem de PP para solicitar cartao quando uso de pinpad externo.
+- Aumento do buffer de dados adicionais de comprovante gráfico.
+- Otimização: Passa a verificar se o comprovante gráfico foi realmente gerado, antes de retornar
+  o nome do arquivo.
+- Melhoria: na função addParam para evitar inconsistências de dados subidos ao Muxx, onde agora o
+  dado enviado pela aplicação passa a ser normalizado para ASCII, removendo acentos e caracteres
+  fora da faixa ASCII imprimível (20h ~ 7Eh);
+- Melhoria: alterações gerais na documentação, para melhor esclarecer alguns pontos.
+- Nova funcionalidade: Adicionado parâmetro "msgPrevia" no callback onPinpadCommand para exibição
+  pela aplicação, caso disponível.
+- Nova funcionalidade: Habilitada a possibilidade de a confirmação ser blocante, através de um
+  novo campo na classe ConfirmationParams.
+- Correção: O teste de chaves não estava funcionando corretamente devido a ausência do tipo de teste.
+- Correção: O mecanismo de troca entre tecnologias de PP (USB e BT) nem sempre acatava a troca
+  corretamente.
+- Otimização: Quando operando com PP externo (USB ou BT), passa a não mais fazer o comando CheckEvent
+  para decidir a exibição da mensagem no PP, gerando ganho de desempenho devido à latência do meio.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a e arm64-v8a
+
+v4.0.103.1 - 13/jul/2020     (Interface Automação: v2.0.0.4)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Ajustes para correto funcionamento do PayGo Integrado com uso de mouse.
+- Ajustes para funcionamento no Android Kitkat.
+- Correção comportamento botão home após inserir a senha do cartão.
+
+*** PGWebLib (v4.0.103.1) ***
+>>> PGWebLib
+- Não houve alterações neste módulo.
+
+>>> Módulo Android <<<
+- Correção crash Kitkat.
+- Tratamento para casos em que há mais de um dispositivo USB conectado.
+- Exclusão da necessidade de chamar o endTransaction ao final de cada transação.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.25
+
+    > N910
+    * bcnewland: v1.77
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.25
+
+v4.0.103.2 - 20/jul/2020     (Interface Automação: v2.0.0.4)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção crash botão cancelar na tela de inserção do cartão.
+- Remoção do preenchimento de mensagens, caso elas venham vazias da PGWebLib.
+
+*** PGWebLib (v4.0.103.2) ***
+>>> PGWebLib
+- Correção para mascarar a tag PP_PINBLK no log do PIN-Pad ABECS.
+- Passa a retornar a mensagem de cancelamento quando a automação cancela a captura.
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.25
+
+    > N910
+    * bcnewland: v1.77
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.25
+
+
+v4.0.103.3 - 31/jul/2020     (Interface Automação: v2.0.0.5)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção tratamento moeda.
+
+*** PGWebLib (v4.0.103.2) ***
+>>> PGWebLib
+- Não houve alterações neste módulo.
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.27
+
+    > N910
+    * bcnewland: v1.83
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.25
+
+v4.0.103.4 - 07/ago/2020     (Interface Automação: v2.0.0.5)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Melhoria: O terminal N910 passa a utilizar as notificações DSP_INICIA_PIN e DSP_ENCERRA_PIN para
+a captura de senha.
+
+*** PGWebLib (v4.0.103.3) ***
+>>> PGWebLib
+- Correção: criptografia feita 2 vezes com o mesmo dado retornava dados incorretos.
+- Melhoria: Tratamento para tentar retransmissão no caso de perda de SYN.
+
+>>> Módulo Android <<<
+- Melhoria: Tratamento para o PIN-Pad USB retornar erro PIN-Pad e não timeout em casos de falhas
+com o PIN-Pad. Por Exemplo: quando o PIN-Pad é removido durante a transação.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.27
+
+    > N910
+    * bcnewland: v1.83
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.26
+
+v4.0.103.5 - 21/ago/2020     (Interface Automação: v2.0.0.5)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Nova Funcionalidade: Passa a suportar a exibição de QR Code.
+- Correção: Confirmação transação (em alguns casos ocorria falhas no envio automático).
+- Correção: Alguns campos do saidaTransacao não estavam sendo preenchidos.
+- Melhoria: Ajuste na exibição de mensagens.
+- Correção: O teclado de senha do GPOS700 estava saindo do modo tela cheia.
+- Correção: Ao clicar em Upload (para enviar os logs), era emitida mensagem de sucesso, mesmo
+na ausência de logs.
+- Correção: No caso de venda digitada no débito (em alguns casos não é permida), era emitida
+mensagem de erro, porém pedia novamente para digitar o número do cartão.
+
+*** PGWebLib (v4.0.103.4) ***
+>>> PGWebLib <<<
+- Não houve alterações neste módulo.
+
+>>> Módulo Android <<<
+- Melhoria: Tratamento para o PIN-Pad USB não retornar timeout em casos de falhas com o PIN-Pad.
+- Nova funcionalidade: Implementação do QR Code.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.28
+
+    > N910
+    * bcnewland: v1.83
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.27
+
+v4.0.103.6 - 02/set/2020     (Interface Automação: v2.0.0.5)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção: Confirmação transação (em alguns casos estava enviando a confirmação duas vezes, o que
+causava falhas na confirmação).
+
+*** PGWebLib (v4.0.103.5) ***
+>>> PGWebLib <<<
+- Melhoria: Foram ajustadas algumas informações na exibição de dados do terminal.
+
+>>> Módulo Android <<<
+- Correção: Na realização de transações seguidas com PIN-Pad USB, estava emitindo "Erro PIN-Pad".
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 29
+    * compileSdkVersion = 29
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.28
+
+    > N910
+    * bcnewland: v1.83
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.27
+
+v4.0.103.7 (interna) - 18/set/2020     (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Nova Funcionalidade: Passa a suportar Android 11 (SDK 30).
+- Correção: Passa a salvar os dados necessários para a confirmação em um arquivo, caso a automação
+não envie essas informações, elas são consultadas do arquivo (antes ocorria crash neste caso).
+- Correção: a validação de CPF estava retornando false em todos os casos, o que impossibilitava a
+entrada de CPF caso sua validação fosse obrigatória.
+
+*** PGWebLib (v4.0.103.5) ***
+>>> PGWebLib <<<
+- Não houve alterações neste módulo.
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.28
+
+    > N910
+    * bcnewland: v1.83
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.27
+
+v4.0.103.8 - 30/set/2020     (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção: No caso de ausência de logs, passa a emitir erro na tentativa de captura.
+- Correção: Uso de novo logo para o comprovante gráfico.
+
+*** PGWebLib (v4.0.103.6) ***
+>>> PGWebLib <<<
+- Não houve alterações neste módulo.
+
+>>> Módulo Android <<<
+- Correção: Em alguns casos, na realização de transações com PIN-Pad USB, estava emitindo
+"Erro PIN-Pad" (chamado SD-7829).
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.28
+
+    > N910
+    * bcnewland: v1.84
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.27
+
+
+v4.0.103.9 - 07/out/2020     (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção: Adicionado parâmetro NSU Local a SaidaTransacao.
+
+*** PGWebLib (v4.0.103.7) ***
+>>> PGWebLib <<<
+- Correção(interna): Passa a enviar para o Muxx as informações detalhadas dos módulos EMV e sem
+contato presentes nosterminais POS, caso disponíveis, para que o Muxx possa enviar essas informações
+para as adquirentes nas mensagens ISO.
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.29
+
+    > N910
+    * bcnewland: v1.84
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.28
+
+
+v4.0.103.10 - 03/nov/2020     (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Ajuste no alinhamento de mensagens concatenadas com a constante RETIRE O CARTAO que em alguns
+casos estava sendo exibida de forma incorreta nos terminal N910 e GPOS700
+
+*** PGWebLib (v4.0.103.8) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Correção: Passa a enviar registros AID de 340 caracteres nos terminais ANDROID (N910 e GPOS700).
+
+>>> Módulo Android <<<
+- Ajuste no cliType para funcionar com novas versões de firmware (1.97) do Terminal GPOS700.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.30
+
+    > N910
+    * bcnewland: v1.87
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.28
+
+v4.0.103.11 - 16/nov/2020     (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualizado BC Newland com correções na verificação do timestamp na carga de tabelas
+
+*** PGWebLib (v4.0.103.8) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Correção: Identificado erro na versão anterior em que os parametros AID CTLS não estavam sendo
+enviados corretamente nos terminais ANDROID.
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.30
+
+    > N910
+    * bcnewland: v1.90
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.29
+
+v4.0.103.12 - 10/dez/2020     (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualizado BC Newland com correções na verificação dos parametros T1_CTLSTRMCAP e T1_MOBCVM e
+também foi desabilitado o bit "Mag stripe mode supported" para Discover, de acordo com SU0002.
+- Correção no mapeamento do TESTE_COMUNICACAO. Foi alterado a operação PWOPER_COMMTEST para
+PWOPER_NULL.
+
+*** PGWebLib (v4.0.103.9) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.30
+
+    > N910
+    * bcnewland: v1.91
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.29
+
+v4.0.103.13 - 20/jan/2021    (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualizado PPCompGERTEC que adiciona o novo teclado PIN para aceitar a manta de acessibilidade
+no terminal GPOS700.
+- Atualizado BC Gertec com a correção do valor retornado da tag 9F33 no GOC.
+
+*** PGWebLib (v4.0.103.9) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.210113
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.32
+
+    > N910
+    * bcnewland: v1.91
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.29
+
+
+v4.0.103.14 - 24/fev/2021    (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualizado PPCompNewland com correção no envio do Kernel ICC.
+- Atualizado BC Newland com correções ao capturar pin com PAN de tamanho 12.
+
+*** PGWebLib (v4.0.103.9) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.210113
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.32
+
+    > N910
+    * bcnewland: v1.96
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.30
+
+v4.0.103.15 - 08/mar/2021    (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualizado BC Newland.
+    * Discover TTQ Mobile: o bit 7 do byte 3 da Tag 9F66(TTQ) não estava
+      acatando o que está no T1_MOBCVM da tabela de parâmetros ctls.
+
+*** PGWebLib (v4.0.103.10) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.210113
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.32
+
+    > N910
+    * bcnewland: v1.98
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.30
+
+
+v4.0.103.16 - 13/mai/2021    (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualizado BC Newland.
+    * Correção no MasterCard TRM
+- Atualização PPCompNewland.
+    * Correção para tratar os dados do GIN corretamente
+
+
+*** PGWebLib (v4.0.103.10) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.210113
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.32
+
+    > N910
+    * bcnewland: v2.01
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.31
+
+
+
+v4.0.103.17 - 13/jul/2021    (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualização PPCompGERTEC.
+    * Correção para pegar a versão do kernel ICC.
+
+
+*** PGWebLib (v4.0.103.10) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.210113
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.33
+
+    > N910
+    * bcnewland: v2.01
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.31
+
+
+v4.0.103.18 - 13/set/2021    (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualização PPCompGERTEC.
+    * Feature: Implementação do teclado Pin dentro da aplicação.
+    * Correção: Ao chamar o comando RMC.
+    * Feature: Caso tenha um cartão inserido não disparar notificação
+      para inserir um cartão.
+    * Correção: Ao pegar o tamanho dos dados da resposta recebida(RX).
+
+
+*** PGWebLib (v4.0.103.10) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.210113
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.34
+
+    > N910
+    * bcnewland: v2.01
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.31
+
+
+v4.0.103.19 - 29/set/2021    (Interface Automação: v2.0.0.6)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Atualização: BCGertec
+- Atualização: PPCompGERTEC.
+    * Correção: No envio das versões de kernel ctls visa e mastercard.
+
+
+*** PGWebLib (v4.0.103.10) ***
+>>> Módulo PGWebLib (v4.0.103) <<<
+- Não houve alterações neste módulo
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86 e x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.30.3
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.35
+
+    > N910
+    * bcnewland: v2.01
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.31
+
+v4.1.2.0 - 09/10/2020     (Interface Automação: v2.0.0.7)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Nova Funcionalidade: Adição de modalidade pagamento e forma de identificação do portador de
+carteira virtual à classe SaidaTransacao.
+- Melhoria: Ajustes no fluxo transacional para exibição de QRCode de acordo com a nova
+especificação da PGWebLib.
+
+*** PGWebLib (v4.1.2.0) ***
+>>> PGWebLib
+- CA20-0130: Correção(interna): Correção nos status de desfazimento enviados para o Muxx no caso de
+             erros no comando EMV FinishChip, sempre estava sendo enviado o status de transação
+             negada EMV, quando na verdade existiam situações onde deveriam ser enviados os status:
+             cartão removido, erro de comunicação com o servidor ou erro de comunicação com o
+             PIN-pad.
+- CA20-0132: Correção(interna): Foi detectado durante o desenvolvimento que a tag ABECS_PP_PINBLK
+             não estava sendo mascarada no log. Como esse dado é sensível, deve ser mascarado.
+- CA20-0134: Nova Funcionalidade: As chaves RSA utilizadas para comunicação com os PIN-pads deixam
+             de ser fixas, passando a ser geradas dinamicamente pela biblioteca a cada inicialização.
+- CA20-0135: Nova funcionalidade: Caso o servidor sinalize, o PdC passa a validar o service code
+             independe do padrão da trilha. O problema ocorreu na certificação do Safra, onde o
+             cartão não era identificado como ANSI e deveríamos realizar a validação correta da
+             trilha.
+- CA20-0136: Correção (interna): Caso a transação possuísse uma validação de determinados dados, por
+             exemplo o valor total, a PGWebLib estava encerrando abruptamente.
+- CA20-0139: Correção (interna): Caso estivesse utilizando roteamento junto com um PIN-pad iPP320
+             não ABECS, ao realizar a transação de cancelamento, era apresentado "Problema arquivo
+             parâmetro". Além disso, caso fosse realizada uma carga de tabelas durante o
+             cancelamento utilizando o PIN-pad iPP320 não ABECS, o mapeamento dos registro estariam
+             errados.
+- CA20-0140: Correção (interna): O processo de geração de chaves RSA estava alocando memória
+             indevidamente e, posteriormente, liberando memória que já havia sido liberada. Isso
+             fazia com que em algumas situações a biblioteca finalizasse inesperadamente durante a
+             inicialização.
+- CA20-0143: Correção (interna): Anteriormente, caso a aplicação solicitasse uma lista específica
+             de aplicação x adquirente no getcard, essa lista não estava sendo atualizada e,
+             portanto, poderia retornar cartão não aceito quando deveria ser aceito. Uma forma de
+             simular esse defeito é realizar um cancelamento com SAFRA em um PdC configurado com
+             roteamento.
+- CA20-0144: Correção (interna): Em uma transação de cancelamento com a Stone, o Muxx estava
+             informando mais de 30 registros para a leitura do cartão, fazendo com que ocorresse uma
+             invasão de memória. O problema está no Muxx, porém está sendo feita uma melhoria no PdC.
+- CA20-0145: Correção (interna): Durante os testes da funcionalidade do teste de chaves, foi
+             observado que para o PIN-pad iPP320, após o teste de chaves, o terminal não aceitava
+             senhas offline com tamanho diferente de 6 dígitos. Assim, para evitar esse problema,
+             agora o teste de chaves aceita inserção de senhas no mesmo range que a captura de
+             senhas online (de 4 a 12 dígitos).
+- CA20-0148: Nova funcionalidade: Passa a ser possível que a automação informe a PGWebLib que tem a
+             capacidade de tratar a exibição do QR code em seu próprio display, fazendo com que ele
+             deixe de ser exibido no PIN-pad e os seus dados sejam retornados para que a automação
+             monte-o e exiba-o da forma como achar melhor.
+             Nova funcionalidade: Passa a montar o QR Code internamente à PGWebLib com uma margem de
+             pelo menos um pixel branco para possibilitar a leitura em terminais com fundo escuro.
+- CA20-0153: Correção (interna): Quando o QR code deveria ser exibido no PIN-pad, porém o mesmo não
+             suporta tal funcionalidade, passa a solicitar a exibição no checkout, caso a automação
+             indique o suporte para a sua exibição.
+
+>>> Módulo Android <<<
+- Correção: Foi realizado ajuste para evitar concorrência entre a execução de execTransaction e
+            idleProc.
+- Melhoria: Comprovante dados terminal passa a exibir IP, DNS e, no caso de POS Android, MAC.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.86
+      * kernel: 3.10.49 / build: V2.3.04
+      * PPComp Newland: v1.28
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE
+
+v4.1.2.1 - 13/10/2020     (Interface Automação: v2.0.0.8)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Correção: O QR Code não estava cabendo na tela em posição landscape.
+- Correção: Atualização interface automação (corrigido enum ModalidadesPagamento com troca de
+CARTEIRA_VIRTUAL para PAGAMENTO_CARTEIRA_VIRTUAL).
+
+*** PGWebLib (v4.1.2.0) ***
+>>> PGWebLib
+- Não houve alterações neste módulo.
+
+>>> Módulo Android <<<
+- Não houve alterações neste módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.86
+      * kernel: 3.10.49 / build: V2.3.04
+      * PPComp Newland: v1.28
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE
+
+v4.1.3.0 - 23/10/2020     (Interface Automação: v2.0.0.8)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Não houve alterções neste módulo.
+
+*** PGWebLib (v4.1.3.0) ***
+>>> PGWebLib
+- CA20-0154: Correção(interna): Passa a enviar para o Muxx as informações detalhadas dos módulos EMV
+             e sem contato presentes nos terminais POS, caso disponíveis, para que o Muxx possa
+             enviar essas informações para as adquirentes nas mensagens ISO.
+- CA20-0159: Correção (interna): Caso a transação seja interrrompida abruptamente pela automação
+             após o recebimento de um retorno PWRET_MOREDATA, com as capturas PWDAT_DSPCHECKOUT ou
+             PWDAT_DSPQRCODE e essa transação esteja pendente, passa a enviar um desfazimento
+             automático ao Muxx.
+- CA20-0162: Correção (interna): Correção no comportamento da aplicação no cenário de troca de um
+             PIN-pad ABECS que suporta exibição para um que não suporta. Anteriormente, após a
+             troca, o PdC ficava inoperante, retornando erro interno da camada de QR Code.
+
+>>> Módulo Android <<<
+- Correção: Em alguns dispositivos Android, estava ocorrendo erro na carga de tabelas com PIN-Pad
+            USB.
+- Correção: Estava ocorrendo crash no Android 4.4.4 após cada venda realizada.
+- Correção: Nos terminais estava ocorrendo falha no envio de confirmação de transação, que acabava
+            sendo confirmada somente na próxima venda.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.86
+      * kernel: 3.10.49 / build: V2.3.04
+      * PPComp Newland: v1.28
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE
+
+v4.1.4.0 - 06/11/2020     (Interface Automação: v2.0.0.8)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Não houve alterções neste módulo.
+
+*** PGWebLib (v4.1.4.0) ***
+>>> PGWebLib
+- CA20-0164: Correção (interna): Remoção do tratamento de roteamento de BIN feito no ponto de
+             captura para soluções de autoatendimento, esse tratamento impossibilitava a utilização
+             da segunda carteira virtual associada ao ponto, quando mais de uma estavam associadas.
+
+>>> Módulo Android <<<
+- Correção: Foi reportada a ocorrência aleatória de erro pinpad durante a execução de transações com
+            PIN-Pad USB.
+- Correção: Durante a execução de vendas CTLS, aleatoriamente, ocorria um travamento no fluxo da
+            transação, o que fazia com que a transação fosse cancelada com a mensagem de tempo
+            limite excedido.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.87
+      * kernel: 3.10.49 / build: V2.3.04
+      * PPComp Newland: v1.28
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE
+
+v4.1.4.1 - 11/11/2020     (Interface Automação: v2.0.0.8)
+----------------------------------------------------------------------
+- Essa versão contempla apenas a atualização da PPCompGERTEC.
+
+*** APLICAÇÃO **
+- Não houve alterções neste módulo.
+
+*** PGWebLib (v4.1.4.0) ***
+>>> PGWebLib
+- Não houve alterções neste módulo.
+
+>>> Módulo Android <<<
+- Não houve alterções neste módulo.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.31
+
+    > Newland (N910)
+    * Testado com:
+      * bcnewland-release:    v1.87
+      * kernel: 3.10.49 / build: V2.3.04
+      * PPComp Newland: v1.28
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE
+
+v4.1.4.2 - 19/11/2020     (Interface Automação: v2.0.0.8)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Melhoria: Ajustes na exibição do QR Code para ficar em tamanho proporcional em relação ao
+tamanho da tela.
+- Nova Funcionalidade: Ajustes para funcionamento no terminal GPOS700 Mini.
+
+*** PGWebLib (v4.1.4.1) ***
+>>> PGWebLib
+- Nova Funcionalidade: Ajustes para funcionamento no terminal GPOS700 Mini.
+
+>>> Módulo Android <<<
+- Nova Funcionalidade: Ajustes para funcionamento no terminal GPOS700 Mini.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.29.7.200507
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.31
+
+    > Newland (N910)
+    * bcnewland-release:    v1.90
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.29
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE
+
+v4.1.15.0 - 04/10/2021     (Interface Automação: v2.0.0.8)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Não houve alterções neste módulo.
+
+*** PGWebLib (v4.1.15.1) ***
+>>> PGWebLib
+- CA20-0167: Correção (interna): Foi detectado um problema em que, num cenário de recuperação de
+             queda de energia, a biblioteca recebesse um desfazimento com dados incorretos da
+             transação, ela ignorava o desfazimento armazenado e geraria um cenário de transação
+             pendente. Defeito foi detectado no POS Muxx integrado com a automação ao desconectar
+             a bateria do terminal durante a comunicação final com o Muxx.
+- CA20-0167: Correção (interna): Foi detectado que a tag MUXTAG_PAYMENTMODE estava sendo recebida
+             incorretamente, com seu valor sempre fixado em 1.
+- CA20-0172: Nova funcionalidade: Passa a ser possível obter da PGWebLib se o ponto de captura está
+             configurado como autoatedimento, chamando a função PW_iGetResult com o parâmetro
+             PWINFO_SELFATT.
+- CA20-0173: Nova funcionalidade: Após a leitura de um cartão magnético através da função
+             PW_iPPWaitEvent ou a execução com sucesso de um comando PW_iPPGetCard, passa a ser
+             possível obter o PAN mascarado desse cartão, chamando a função PW_iGetResult com o
+             parâmetro PWINFO_DEFAULTCARDPARCPAN.
+- CA20-0179: Nova funcionalidade: Passa a enviar ao servidor o nome do instalador e os dados dos
+             antivírus instalados na máquina.
+- CA21-0001: Correção (interna): Para transações executadas em somente uma troca de mensagem com o
+             Muxx, o tempo de transação T2 estava sendo gerado se forma errada, com um valor
+             aleatório.
+- CA21-0003: Correção (interna): Passa a desmarcar a necessidade da confirmação para transações que
+             são negadas pelo host no finish chip. Isso gerava a necessidade de que a automação
+             confirmasse/desfizesse uma transação que já estava com status de falha no servidor.
+- CA21-0004: Nova funcionalidade: Passa a ser possível disponibilizar a exportação de logs através
+             do define _PW_EXPORTLOGS_ e a implementação da função PGW_iExportLogs na plataforma.
+- CA21-0005: Correção (interna): Ao ocorrer uma falha de comunicação com o servidor, deixa de enviar
+             dois desfazimentos, um com os identificadores corretos e o motivo equivocado (queda de
+             energia) e o outros com o motivo correto e sem os identificadores, passando a enviar
+             somente um com os dados todos corretos.
+- CA21-0008: Correção(interna): Correção na exibição de mensagem no PIN-Pad. A aplicação vai trocar
+             caracteres inválidos na exibição por espaços. Estava ocorrendo erro na apresentação de
+             mensagem quando a mensagem de resultado estava vindo do Muxx com quebra de linha.
+- CA21-0009: Correção(interna): Correção no código/mensagem de erro retornado quando se adiciona uma
+             modalidade de pagamento (cartão/carteira virtual) não aceita e a transação tem o
+             CNPJ/CPF do estabelecimento adicionado previamente. O erro deveria ser "MODALIDADE DE
+             PAGAMENTO INVALIDA" e estava retornando "CNPJ/CPF INCORRETO".
+- CA21-0012: Nova funcionalidade: Passa a verificar a pasta Data para verificar a permissão de
+             leitura/escrita.
+- CA21-0013: Nova funcionalidade: Passa a garantir que o PIN-pad esteja fechado ao iniciar a
+             transação. Anteriormente, caso algum fluxo finalizasse a transação de forma inesperada,
+             este estaria considerado como aberto pela pgweblib e a próxima transação poderia ser
+             finalizada por "ERRO PINPAD" caso fosse efetuada uma troca de porta do PIN-pad.
+- CA21-0014: Correção (SD-11545): Foi identificado um erro na camada de construção de strings que
+             poderia gerar na montagem incorreta das mesmas. O erro foi observado em produção
+             durante a montagem do comando GOC, que em determinados momentos era montado
+             incorretamente e retornava ERRO PINPAD -2131.
+- CA21-0016: Correção (interna): Em um caso de troca de ambiente em um teste de comunicação
+             automático ou uma queda de conexão durante uma solicitação dos dados de um novo PIN-pad
+             em uma atualização de parâmetros, o ponto de captura podeira ficar inoeprante com a
+             mensagem "ERRO D AUTENTICACAO DO PONTO DE CAPTURA".
+- CA21-0017: Correção (interna): Deixa de logar entradas repetidas de registro do modo de
+             comunicação nos logs. Passa a logar as causas das diversas desconexões.
+- ID19301: Correção (interna): Passa a reiniciar os valores timeout para interação com usuário após
+           a manutenção. Isso foi feito para que o teste de chaves funcione adequadamente após uma
+           manutenção.
+- ID19066: Correção (interna): Corrige o pós processamento dos dados adicionais da rede adquirente
+           durante a captura do cartão. Anteriormente, o terminal poderia reiniciar caso processasse
+           um cartão para rede adquirente de índice 01.
+- ID19832: Nova funcionalidade: Passa a detalhar processo de remapeamento de tabelas nos logs para
+           ser possível depurar eventuais problemas.
+- ID20626: Nova funcionalidade: Adicionada nova função PW_iPPCommTest. Esta função é utilizada para
+           realizar teste de comunicação com o PINpad.
+           Caso não encontre o PINpad com a porta já configurada, procura de forma automática.
+- ID15798: Correção (interna): Passa a considerar o PIN-pad como fechado caso ocorra erro na
+           transmissão do comando para fechar o PIN-pad.
+- ID25521: Correção (interna) : Passa a permitir até 99 AID's no remapeamento de AID's da camada de
+           tratamento PIN-pad. Esta correção corrige o problema de modo inválido para alguns AID's
+           em uma inicialização com roteamento de bandeiras.
+- PGWEB-44: Nova funcionalidade: Passa a retornar a modalidade de pagamento em PW_iGetOperationEx.
+- PGWEB-36: Correção (interna): Deixa de sobrescrever a mensagem de EQUIPAMENTO INCOMPATÍVEL COM
+            REDE ADQUIRENTE por ERRO PINPAD [-2140].
+
+>>> Módulo Android <<<
+- Correção: em caso de exceção no envio dos logs, ocorriam travamentos na aplicação.
+- Melhoria: Passa a enviar os logs para o novo Elasticsearch. É necessário adicionar um arquivo
+            com as configurações do ambiente no SharedPreferences.
+- Correção: Corrigido o formato da mensagem dos logs enviados para o Elasticsearch.
+- Correção: Realizado ajuste para permitir, no caso de PIN-Pad embarcado, que sejam realizadas duas
+            ou mais transações em sequência.
+- Otimização: Redução no tempo para comunicação com PIN-Pad USB.
+- Correção: Ajuste para o correto funcionamento da comunicação serial TCP.
+- Correção: Centralização do cabeçalho e rodapé do comprovante gráfico.
+- Nova Funcionalidade: Exclusão de logs armazenados há mais de 30 dias.
+- Correção: Estava pegando o clitype inválido em caso de totem Gertec.
+- ID18107: Melhoria: Adição do texto 'Android' na versão do Android exibida no comprovante dados
+           terminal.
+- ID19713: Correção: Passa a pedir a remoção do cartão no POS Android quando a transação é cancelada
+           no fluxo transacional e o cartão está inserido.
+- ID19749: Nova Funcionalidade: Passa a enviar o T5 da transação
+-          Melhoria: Passa a remover as informações do pdc após manutenção.
+- ID19739: Correção: Ajuste para evitar crash na confirmação de transações com VISA crédito.
+- ID21142: Correção: Ao executar diversas transações seguidas pela inserção do cartão, ocorriam
+           travamentos.
+- ID20837: Correção: Função criada para chamar o remove card após a impressão do comprovante.
+-          Correção: Mesmo em caso de falha na instalação, passava a pedir a senha técnica do
+           gerador de senha. Agora essa senha só é pedida após uma instalação bem sucedida.
+- ID22040: Correção: A numeração da versão do C6Pay Integrado estava incorreta,
+ estava exibindo a versão da PGWebLib (Menu administrativo -> Versão)
+- ID22978: Correção: Não chama mais o removeCard em operações ADM.
+- ID22334: Correção: Não exibe a mensagem para inserir um cartão quando tiver um cartão inserido.
+- ID23434: Correção: validação para verificar transações pendentes ao inicializar a lib.
+- ID23655: Correção: remover o cartão depois de alguns minutos da transação ser
+finalizadadeixava a aplicação travada.
+- ID23340: Correção: alterado o método removeCard para chamar o RMC ao invés de um CKE.
+- ID23895: Correção: Ajuste para armazenar os dados da transação em cache ao remover a bateria.
+- ID21164: Correção: Ao manter o cartão inserido até o final da transação não irá começar outra
+           automaticamente.
+- ID21164: Correção: Apenas reiniciar a checagem de insertCard ao realizar o removeCard.
+Correção: Estava sendo solicitada a captura do cartão mais de uma vez durante o fluxo transacional.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.30.3
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.35
+
+    > N910
+    * bcnewland-release:    v204
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.34
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE
+
+v4.1.15.1 - 06/10/2021     (Interface Automação: v2.0.0.8)
+----------------------------------------------------------------------
+*** APLICAÇÃO **
+- Não houve alterções neste módulo.
+
+*** PGWebLib (v4.1.15.2) ***
+>>> PGWebLib
+- Não houve alterações neste módulo.
+
+>>> Módulo Android <<<
+- SPM-128: Correção: Estava sendo exibida uma mensagem reduntante sobre a inserção do cartão após
+  erro na primeira leitura.
+- Correção: Ao iniciar uma venda pela inserção do cartão não deve pedir para inserir um cartão.
+- Correção: Para alguns dispositivos GPOS700 estava pegando o clitype errado, impossibilitando a
+  realização de transações.
+
+    > Geral
+    * minSdkVersion = 19
+    * targetSdkVersion = 30
+    * compileSdkVersion = 30
+    * abi = armeabi-v7a, arm64-v8a, x86, x86-64
+
+    > GPOS700
+    * gedi: 1.14.15.200208
+    * ppcomp: 1.30.3
+    * kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+    * PPCompGERTEC v1.35
+
+    > N910
+    * bcnewland-release:    v204
+    * kernel: 3.10.49 / build: V2.3.04
+    * PPComp Newland: v1.34
+
+    > PERMISSÕES
+      Para uso de todas as funcionalidades da Lib, recomenda-se que sejam solicitadas
+      as seguintes permissões para o usuário (conforme práticas recomendadas em:
+      https://developer.android.com/training/permissions/requesting?hl=pt-br):
+        * ACCESS_COARSE_LOCATION
+        * WRITE_EXTERNAL_STORAGE
+        * READ_EXTERNAL_STORAGE
+        * READ_PHONE_STATE

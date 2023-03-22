@@ -1,0 +1,47 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 590
+  ClientWidth = 360
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Position.X = 8.000000000000000000
+    Position.Y = 136.000000000000000000
+    Size.Width = 337.000000000000000000
+    Size.Height = 249.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Button1: TButton
+      Align = Bottom
+      Margins.Top = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 194.000000000000000000
+      Size.Width = 327.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'ADMINISTRA'#199#195'O'
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Align = Bottom
+      Position.X = 5.000000000000000000
+      Position.Y = 139.000000000000000000
+      Size.Width = 327.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'VENDA'
+      OnClick = Button2Click
+    end
+  end
+end

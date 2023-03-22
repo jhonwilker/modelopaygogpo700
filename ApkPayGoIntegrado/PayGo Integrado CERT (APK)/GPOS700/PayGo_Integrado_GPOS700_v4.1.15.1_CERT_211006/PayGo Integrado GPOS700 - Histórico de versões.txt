@@ -1,0 +1,364 @@
+     ------------------------------------------------------------
+     |  Cliente Pay&Go Web para GPOS700 - Histórico de Versões  |
+     ------------------------------------------------------------
+
+>>>> PARA O HISTÓRICO COMPLETO, CONSULTAR O ARQUIVO "Cliente Pay&Go Web - Historico de versoes.txt"
+
+ v4.0.64.0 -  09/10/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+- Primeira versão compilada do Pay&Go Web Android para a plataforma
+Gertec GPOS700.
+
+****************************************
+                COMPONENTES
+****************************************
+  - Bibilioteca PinPad: v2.12
+  - PPComp Gertec: v1.10
+  - libpayment: 1.14.7.180903
+  - libppcomp: 1.22.9.180903
+****************************************
+
+ v4.0.64.1 -  07/11/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+- Atualização das Bibliotecas de PinPad, para obtenção dos GetInfo
+relativos às redes adquirentes.
+
+****************************************
+                COMPONENTES
+****************************************
+  - Bibilioteca PinPad: v2.13
+  - PPComp Gertec: v1.11
+  - libpayment: 1.14.7.180903
+  - libppcomp: 1.22.9.180903
+****************************************
+
+ v4.0.67.0 -  10/12/2018     (Interface Automação: v1.5.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.67.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+- Atualização das bibliotecas de PinPad com as seguintes correções:
+    - Correção nos parametros resultadoComunicacaoAdquirente e transacaoAprovada (resultado
+      do processamento EMV) do FinishChip, onde não era especificado como foi negada a transação
+      (cartão ou host)
+    - Correção no indice da carga de tabelas. A versão anterior não pegava o indice enviado pela
+      aplicação.
+    - Implementação do comando ChangeParameter.
+- Ajustes de centralização das mensagens de display.
+
+****************************************
+                COMPONENTES
+****************************************
+  - Bibilioteca PinPad: v2.15
+  - PPComp Gertec: v1.12
+  - libpayment: 1.14.7.180903
+  - libppcomp: 1.22.9.180903
+****************************************
+
+ v4.0.69.0 -  16/01/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.69.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+- Atualização das bibliotecas de PinPad para realizar transação contactless.
+
+****************************************
+                COMPONENTES
+****************************************
+  - Bibilioteca PinPad: v2.16
+  - PPComp Gertec: v1.13
+  - libpayment: 1.14.11.181207
+  - libppcomp: 1.22.11.190108
+****************************************
+
+ v4.0.82.1 -  12/06/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.82.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+- Atualização das bibliotecas de PinPad com correções para realizar transações contactless.
+
+****************************************
+                COMPONENTES
+****************************************
+  - PPComp Gertec: v1.16
+  - libpayment: 1.14.13.190425
+  - libppcomp: 1.25.3.190513
+****************************************
+
+
+v4.0.85.0 -  22/07/2019     (Interface Automação: v1.6.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+ - Atualização das bibliotecas de PinPad com as seguintes correções:
+    - Tratamento de mensagem de SENHA INCORRETA;
+    - Tratamento para envio correto da mensagem de CARTÃO MAL INSERIDO
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.5.190613
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.16
+****************************************
+
+
+v4.0.85.2 -  14/08/2019     (Interface Automação: v1.7.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Correção na confirmação Positiva. Terminal não solicitava ANO DE NASCIMENTO
+
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.5.190613
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.17
+****************************************
+
+
+v4.0.85.3 -  22/08/2019     (Interface Automação: v1.7.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Tratamento para exibição correta de algumas mensagens de notificação
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.5.190613
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.18
+****************************************
+
+
+v4.0.85.4 -  02/09/2019     (Interface Automação: v1.7.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Tratamento para envio correto da mensagem de CARTÃO INVALIDADO
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.5.190613
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.19
+****************************************
+
+
+v4.0.85.5 -  05/09/2019     (Interface Automação: v1.7.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizada a lib PPCompGertec para tratamento de casos onde são recebidos bytes inválidos
+    após o CRC
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.5.190613
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.20
+****************************************
+
+
+v4.0.85.6 -  18/09/2019     (Interface Automação: v1.7.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Ajuste para exibição correta da mensagem  CARTAO INVALIDO USE CHIP/TARJA após um RemoveCard
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.5.190613
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.20
+****************************************
+
+
+v4.0.85.7 -  15/10/2019     (Interface Automação: v1.7.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizada a lib ppcomp Gertec com correção no retorno da TAG 9F06
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.6.190821
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.20
+****************************************
+
+
+v4.0.85.8 -  24/10/2019     (Interface Automação: v1.7.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.85.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizada a lib ppcomp Gertec com correção nas transações Wallet Mastercard
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.6.191001
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.20
+****************************************
+
+v4.0.91.0 -  23/12/2019     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.91.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizada a lib ppcomp Gertec com Ajuste para envio correto da mensagem CARTAO INVALIDO USE
+    CHIP/TARJA.
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.5.190613
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.21
+****************************************
+
+v4.0.91.1 -  16/01/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.91.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizada a lib ppcomp para versão mais recente: 1.25.6.191001 (versão já adotada no Cliente
+     Pay&Go Web GPOS700 v4.0.85.8).
+
+****************************************
+                COMPONENTES
+****************************************
+  - payment: 1.14.13.190425
+  - ppcomp: 1.25.6.191001
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_19061114
+  - PPCompGERTEC v1.21
+****************************************
+
+
+v4.0.91.2 -  06/03/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.91.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualização das libs GERTEC para as versões mais recente
+
+****************************************
+                COMPONENTES
+****************************************
+  - gedi: 1.14.15.200208
+  - ppcomp: 1.29.1.200228
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+  - PPCompGERTEC v1.22
+****************************************
+
+
+v4.0.91.3 -  20/03/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.91.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizado a lib ppComp Generica com ajuste no callback DSP_SELECIONADO
+
+****************************************
+                COMPONENTES
+****************************************
+  - gedi: 1.14.15.200208
+  - ppcomp: 1.29.1.200228
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+  - PPCompGERTEC v1.23
+****************************************
+
+
+v4.0.91.4 -  30/03/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.91.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizado a lib ppComp Generica com ajuste para enviar as mensagens recebidas no comando DSP
+como notificações do tipo DSP_LIVRE
+
+****************************************
+                COMPONENTES
+****************************************
+  - gedi: 1.14.15.200208
+  - ppcomp: 1.29.1.200228
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+  - PPCompGERTEC v1.23
+****************************************
+
+v4.0.91.5 -  22/05/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.91.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualização das libs GERTEC para as versões mais recente
+
+****************************************
+                COMPONENTES
+****************************************
+  - gedi: 1.14.15.200208
+  - ppcomp: 1.29.7.200507
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+  - PPCompGERTEC v1.23
+****************************************
+
+v4.0.91.6 -  05/06/2020     (Interface Automação: v1.8.0.0)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.91.6 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Atualizada a lib ppcomp com implementação do comando GenericCmd
+
+****************************************
+                COMPONENTES
+****************************************
+  - gedi: 1.14.15.200208
+  - ppcomp: 1.29.7.200507
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+  - PPCompGERTEC v1.25
+****************************************
+
+v4.0.103.0 -  29/06/2020     (Interface Automação: v2.0.0.4)
+----------------------------------------------------------------------
+>>> Baseada na versão 4.0.103.0 do Cliente Pay&Go Web Android
+
+*** APLICAÇÃO ***
+    - Nova identidade visual PayGo.
+
+****************************************
+                COMPONENTES
+****************************************
+  - gedi: 1.14.15.200208
+  - ppcomp: 1.29.7.200507
+  - kernel: 3.10.49 / build: WPOS-3_V1.01_20021722
+  - PPCompGERTEC v1.25
+****************************************
+
+*** Para consultar informações sobre as novas versões, verificar o arquivo:
+    PayGo Integrado - Histórico de Versões.txt

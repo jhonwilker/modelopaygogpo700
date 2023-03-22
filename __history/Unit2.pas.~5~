@@ -1,0 +1,46 @@
+unit Unit2;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.Layouts,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView, FMX.Objects;
+
+type
+  TForm2 = class(TForm)
+    Label1: TLabel;
+    Layout1: TLayout;
+    Edit1: TEdit;
+    ListView1: TListView;
+    Layout2: TLayout;
+    Button1: TButton;
+    Layout3: TLayout;
+    Rectangle4: TRectangle;
+    lb_soma_valor_pago: TLabel;
+    Label3: TLabel;
+    Layout4: TLayout;
+    SpeedButton1: TSpeedButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+ Layout2.Visible := true;
+ Button1.Text := 'Adicionar Pagamento';
+end;
+
+end.

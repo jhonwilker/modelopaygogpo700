@@ -1,0 +1,133 @@
+unit uVenda;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.Layouts,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView, FMX.Objects;
+
+type
+  TfVenda = class(TForm)
+    Label1: TLabel;
+    Layout1: TLayout;
+    Edit1: TEdit;
+    Layout2: TLayout;
+    Button1: TButton;
+    Layout4: TLayout;
+    bt_voltar: TSpeedButton;
+    popup_background: TRectangle;
+    lv_pagamentos: TListView;
+    Layout3: TLayout;
+    Rectangle4: TRectangle;
+    lb_soma_valor_pago: TLabel;
+    Label3: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure bt_voltarClick(Sender: TObject);
+
+    procedure CalculaSomaValoresLV(var lb: TLabel; lv: TListView; campo: string);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fVenda: TfVenda;
+  cvalor_soma_valor_pago, cvalor_total_a_pagar : Currency;
+
+implementation
+
+{$R *.fmx}
+
+uses uEscolhaFormaPagamento;
+
+procedure TfVenda.Button1Click(Sender: TObject);
+var
+valor1, valor2: Currency;
+begin
+
+  if Button1.Text = 'Pagar' then
+  begin
+
+    Layout2.Visible := true;
+    lb_soma_valor_pago.Text := '0,00';
+    Button1.Text := 'Adicionar Pagamento';
+    Edit1.ReadOnly := true;
+
+  end else if Button1.Text = 'Adicionar Pagamento' then
+  begin
+
+    valor1 := StrToFloat(StringReplace(Edit1.Text,'.','',[rfReplaceAll, rfIgnoreCase]));
+    valor2 := StrToFloat(StringReplace(lb_soma_valor_pago.Text,'.','',[rfReplaceAll, rfIgnoreCase]));
+
+    if valor1 = valor2 then exit;
+
+    popup_background.Visible := true;
+    if not Assigned(fEscolhaFormaPagamento) then  Application.CreateForm(TfEscolhaFormaPagamento,fEscolhaFormaPagamento);
+    fEscolhaFormaPagamento.Show;
+
+  end else
+  begin
+    close;
+  end;
+
+end;
+
+procedure TfVenda.FormActivate(Sender: TObject);
+var
+valor1, valor2: Currency;
+begin
+
+
+
+  CalculaSomaValoresLV(lb_soma_valor_pago,lv_pagamentos,'Valor');
+
+  valor1 := StrToFloat(StringReplace(Edit1.Text,'.','',[rfReplaceAll, rfIgnoreCase]));
+  valor2 := StrToFloat(StringReplace(lb_soma_valor_pago.Text,'.','',[rfReplaceAll, rfIgnoreCase]));
+
+  if (valor1 = valor2) and (valor1 <> 0) then
+     Button1.Text := 'Novo Pagamento';
+end;
+
+procedure TfVenda.bt_voltarClick(Sender: TObject);
+begin
+  close;
+end;
+
+
+procedure TfVenda.CalculaSomaValoresLV(var lb: TLabel; lv: TListView;
+  campo: string);
+var
+I, num_itens     : integer;
+valor_total_ext  : Currency;
+limpaPonto       : String;
+begin
+
+  valor_total_ext := 0;
+  num_itens := lv.Items.Count;
+
+  if num_itens = 0 then
+  begin
+    cvalor_soma_valor_pago  := valor_total_ext ;
+    lb_soma_valor_pago.Text := FormatFloat('###,##0.00',cvalor_soma_valor_pago);
+    exit;
+  end;
+
+  if num_itens > 0 then ;
+  begin
+
+    for I := 0 to num_itens-1 do
+    begin
+     limpaPonto := StringReplace(lv.Items[i].Objects.FindDrawable(campo).Data.AsString,'.','',[rfReplaceAll, rfIgnoreCase]);
+     valor_total_ext := valor_total_ext + StrToFloat(limpaPonto);
+    end;
+  end;
+  cvalor_soma_valor_pago := valor_total_ext;
+  lb.Text := FormatFloat('###,##0.00',valor_total_ext);
+
+end;
+end.

@@ -1,0 +1,157 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls,
+  InterfaceAutomacao_v1_6_0_0,
+  GEDIPrinter,    //Esta unit inicializa o Modulo de impressao G700.
+  G700Interface,
+
+
+  FMX.Platform.Android,
+
+  Androidapi.Helpers,
+  Androidapi.Jni.OS,
+  Androidapi.JNI.JavaTypes,
+  Androidapi.Log, FMX.Layouts;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Layout1: TLayout;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure efetuaOperacao(operacoes : JOperacoes);
+    procedure iniPayGoInterface(mudacor : Boolean; ViaDeferenciada : Boolean; ViaReduzida: Boolean);
+    function setPersonalizacao(mudacor: Boolean): JPersonalizacao;
+  end;
+
+var
+  mHandler          : JHandler;
+  mConfimacoes      : JConfirmacoes;
+  mDadosAutomacao   : JDadosAutomacao;
+  mPersonalizacao   : JPersonalizacao;
+  mTransacoes       : JTransacoes;
+  mSaidaTransacao   : JSaidaTransacao;
+  mEntradaTransacao : JEntradaTransacao;
+  mViasImpressao    : JViasImpressao;
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+uses uEscolhaFormaPagamento, uVenda;
+
+{ TForm1 }
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  efetuaOperacao(TJOperacoes.JavaClass.ADMINISTRATIVA);
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  if not Assigned(fVenda) then  Application.CreateForm(TfVenda,fVenda);
+  fVenda.Show;
+
+end;
+
+procedure TForm1.efetuaOperacao(operacoes: JOperacoes);
+var
+  NumeroOperacao : integer;
+begin
+  // OK
+  tthread.CreateAnonymousThread(
+    procedure
+    begin
+      NumeroOperacao := Round(random(99999)); // 99999 é o limite do numero randomico
+
+      mEntradaTransacao := TJEntradaTransacao.JavaClass.init(operacoes, StringToJString(IntToStr(NumeroOperacao)));
+
+      try
+        begin
+          mConfimacoes := TJConfirmacoes.Create;
+          mSaidaTransacao := mTransacoes.realizaTransacao(mEntradaTransacao);
+
+          if mSaidaTransacao = nil then
+                //LogAplicacao('mSaidaTransacao esta NIL');
+
+            mConfimacoes.informaIdentificadorConfirmacaoTransacao(
+                  mSaidaTransacao.obtemIdentificadorConfirmacaoTransacao
+                );
+        end
+
+      finally
+
+      end;
+    end
+  ).Start;
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  iniPayGoInterface(false,false,false);
+end;
+
+procedure TForm1.iniPayGoInterface(mudacor, ViaDeferenciada,
+  ViaReduzida: Boolean);
+var
+  versao : JString;
+begin
+
+  versao := MainActivity.getPackageManager.getPackageInfo(MainActivity.getPackageName, 0).versionName;
+
+  mPersonalizacao := setPersonalizacao(mudacor);
+
+  mDadosAutomacao := TJDadosAutomacao.JavaClass.init(
+                                         StringToJString('Gertec'),             // Empresa Automação
+                                         StringToJString('Automação Demo'),     // Nome Automação
+                                         StringToJString('1.0'),                                // Versão
+                                         true,                                  // Suporta Troco
+                                         true,                                  // Suporta Desconto
+                                         ViaDeferenciada,                       // Via Diferenciada
+                                         ViaReduzida,                           // Via Reduzida
+                                         mPersonalizacao);                      // Personaliza Tela
+
+  mTransacoes := TJTransacoes.JavaClass.obtemInstancia(mDadosAutomacao, MainActivity);
+
+end;
+
+function TForm1.setPersonalizacao(mudacor: Boolean): JPersonalizacao;
+var
+  pb : JPersonalizacao_Builder;
+begin
+
+  pb := TJPersonalizacao_Builder.Create;
+
+  if mudacor then
+  begin
+    pb.informaCorFonte(StringToJString('#000000'));
+    pb.informaCorFonteTeclado(StringToJString('#000000'));
+    pb.informaCorFundoCaixaEdicao(StringToJString('#FFFFFF'));
+    pb.informaCorFundoTela(StringToJString('#F4F4F4'));
+    pb.informaCorFundoTeclado(StringToJString('#F4F4F4'));
+    pb.informaCorFundoToolbar(StringToJString('#2F67F4'));
+    pb.informaCorTextoCaixaEdicao(StringToJString('#000000'));
+    pb.informaCorTeclaPressionadaTeclado(StringToJString('#e1e1e1'));
+    pb.informaCorTeclaLiberadaTeclado(StringToJString('#dedede'));
+    pb.informaCorSeparadorMenu(StringToJString('#2F67F4'));
+
+  end;
+
+  result := pb.build;
+
+end;
+
+end.
